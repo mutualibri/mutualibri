@@ -87,3 +87,4 @@ Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
 
 
 ### Tautan berita acara
+https://docs.google.com/spreadsheets/d/14apyXurh3-wqJJQWC5R91c0Tqf8GeQGRpwGzvzTd2o4/edit#gid=959655085
