@@ -39,7 +39,7 @@ Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen pe
 
 **Deskripsi Aplikasi mobile**
 
-‘mututalibri’ adalah sebuah situs seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Situs ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Situs ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
+‘mututalibri’ adalah sebuah aplikasi seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Situs ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Situs ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
 
 **Fitur/Modul**
 
@@ -60,11 +60,11 @@ Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
 
     Modul ini dirancang untuk membagikan kutipan (quotes) dari buku yang siswa baca berdasarkan judul buku tertentu. Ide utamanya adalah menciptakan satu tempat di mana siswa dapat berbagi kutipan favorit mereka dari buku favorit mereka dan siswa lain dapat membaca kutipan buku tersebut.
 
-**Roles**
+**Roles atau pembqgian kerja**
 
 1. Modul
-    * Mencari buku - buku yang tersedia pada perpustakaan (katalog) - Samuel Widjaja
-    * Melakukan peminjaman online terhadap buku yang diinginkan - Sabrina Atha Shania
+    * Mencari buku - buku yang tersedia dalam aplikasi perpustakaan (katalog) - Samuel Widjaja
+    * Melakukan peminjaman online terhadap buku yang diinginkan di dalam aplikasi perpustakaan - Sabrina Atha Shania
     * Mereview buku yang telah dibaca - Novrizal Airsyahputra
     * Menyajikan seluruh quotes yang ditambahkan oleh user berdasarkan judul buku - Fari Hafizh Ramadhan
     
