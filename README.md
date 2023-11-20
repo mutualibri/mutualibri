@@ -31,19 +31,19 @@ Kebutuhan akademik siswa juga berhubungan dengan perpustakaan, namun ketika sisw
 
 Perpustakaan memiliki koleksi buku yang sangat luas, namun informasi tentang buku-buku tersebut tidak selalu mudah diakses atau diperbarui. Akibatnya, siswa sering kesulitan dalam mencari dan memilih buku yang sesuai dengan minat atau kebutuhan mereka. Salah satu alasan utama adalah keragaman dan ukuran koleksi yang dimiliki oleh perpustakaan. Dalam perpustakaan yang besar, terdapat ribuan hingga jutaan buku yang mencakup beragam topik, bahasa, dan format. Hal ini seringkali membuat sulit bagi siswa untuk menemukan buku yang sesuai dengan kebutuhan mereka tanpa panduan yang tepat. Pengelolaan data koleksi buku yang tidak baik dalam perpustakaan juga dapat mengakibatkan berbagai masalah, termasuk kebingungan dalam perpustakaan, hilangnya buku, dan ketidakefisienan dalam peminjaman dan pemeliharaan koleksi. Oleh karena itu, penting untuk menjalankan pengelolaan data buku yang baik dan benar.
 
-Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen perpustakaan serta upaya untuk mengumpulkan informasi buku yang lebih lengkap dan relevan.  Dengan menghadirkan aplikasi perpustakaan online, dapat mempermudah siswa memperoleh akses yang lebih baik ke informasi buku. Aplikasi web ini adalah solusi modern yang mengubah cara kita mengakses dan menikmati buku. Dengan kemajuan teknologi, kita tidak lagi terbatas pada perpustakaan fisik atau toko buku konvensional. Melalui aplikasi web ini, siswa dapat menjelajahi koleksi buku yang luas dan beragam dari kenyamanan rumah mereka sendiri. Tidak hanya itu, tetapi aplikasi ini juga memungkinkan siswa dapat dengan mudah meminjam buku yang mereka inginkan.
+Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen perpustakaan serta upaya untuk mengumpulkan informasi buku yang lebih lengkap dan relevan.  Dengan menghadirkan aplikasi perpustakaan online, dapat mempermudah siswa memperoleh akses yang lebih baik ke informasi buku. Aplikasi mobile ini adalah solusi modern yang mengubah cara kita mengakses dan menikmati buku. Dengan kemajuan teknologi, kita tidak lagi terbatas pada perpustakaan fisik atau toko buku konvensional. Melalui aplikasi mobile ini, siswa dapat menjelajahi koleksi buku yang luas dan beragam dari kenyamanan rumah mereka sendiri. Tidak hanya itu, tetapi aplikasi ini juga memungkinkan siswa dapat dengan mudah meminjam buku yang mereka inginkan.
 
 ---
 
 ### Gambaran besar aplikasi
 
-**Deskripsi Aplikasi Web**
+**Deskripsi Aplikasi mobile**
 
 ‘mututalibri’ adalah sebuah situs seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Situs ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Situs ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
 
 **Fitur/Modul**
 
-Aplikasi web ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
+Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
 1. Melakukan pencarian buku yang tersedia dalam katalog perpustakaan 
 
     Modul ini dirancang untuk membantu siswa menemukan dan mengakses buku dalam katalog perpustakaan. Siswa dapat menggunakan aplikasi ini untuk mencari buku berdasarkan judul atau kata kunci lainnya. Aplikasi akan memberikan informasi detail tentang buku-buku yang sesuai, termasuk sinopsis, ireview, dan quotes yang dapat ditambahkan oleh user. Siswa juga dapat melihat ketersediaan buku tersebut untuk dipinjam.
@@ -68,7 +68,7 @@ Aplikasi web ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
     * Mereview buku yang telah dibaca - Novrizal Airsyahputra
     * Menyajikan seluruh quotes yang ditambahkan oleh user berdasarkan judul buku - Fari Hafizh Ramadhan
     
-2. Dasar aplikasi web
+2. Dasar aplikasi mobile
     * Dashboard
     * Homepage
     * Index
@@ -83,7 +83,7 @@ Aplikasi web ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
 4. Ulasan Buku: Pengguna diberikan kesempatan untuk menuliskan ulasan tentang buku yang telah mereka baca.
 
 
-### Alur pengintegrasian dengan web service untuk terhubung dengan aplikasi web yang sudah dibuat saat Proyek Tengah Semester
+### Alur pengintegrasian dengan mobile service untuk terhubung dengan aplikasi mobile yang sudah dibuat saat Proyek Tengah Semester
 
 
 ### Tautan berita acara
