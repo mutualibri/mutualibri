@@ -1,6 +1,6 @@
 # mutualibri
 
-### Developer Team :
+### 👩🏻🧔🏻‍♂️ Developer Team :
 * 2206083691 - Fari Hafizh Ramadhan
 * 2206081780 - Novrizal Airsyahputra
 * 2206081906 - Samuel Widjaja
@@ -8,22 +8,22 @@
 
 ---
 
-### Nama Aplikasi:
+### 📒 Nama Aplikasi:
 mutualibri
 
 ---
 
-### Sumber Dataset Katalog Buku:
+### 🔗 Sumber Dataset Katalog Buku:
 https://www.kaggle.com/datasets/bilalyussef/google-books-dataset
 
 ---
 
-### Link Tautan referensi berdasarkan web TK PTS:
+### 🧑🏻‍💻 Link Tautan referensi berdasarkan web TK PTS:
 http://mutualibri-a08-tk.pbp.cs.ui.ac.id/
 
 ---
 
-### Latar Belakang
+### 🔙 Latar Belakang
 
 Perilaku siswa yang semakin beralih ke dunia digital dan bergantung pada internet telah mengalami transformasi yang signifikan dalam beberapa tahun terakhir. Saat ini, banyak siswa mengandalkan internet untuk mengejar pengetahuan, melakukan penelitian, dan memenuhi kebutuhan akademik mereka. Siswa seringkali bergantung pada internet untuk akses sejumlah besar sumber informasi yang tersedia dalam sekejap, sehingga mereka dapat mengeksplorasi berbagai topik dengan cepat dan efisien. Mereka menggunakan mesin pencari, platform pembelajaran online, dan sumber daya digital lainnya untuk membantu dalam tugas-tugas akademik mereka. Internet juga memungkinkan siswa untuk terhubung dengan sesama mahasiswa, guru, atau ahli di bidang tertentu melalui jejaring sosial, forum, dan komunitas online.
 
@@ -35,56 +35,47 @@ Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen pe
 
 ---
 
-### Gambaran besar aplikasi
 
-**Deskripsi Aplikasi mobile**
+### 📱 Gambaran besar aplikasi
 
-‘mututalibri’ adalah sebuah situs seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Situs ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Situs ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
+**📲 Deskripsi Aplikasi mobile**
 
-**Fitur/Modul**
+‘mututalibri’ adalah sebuah aplikasi seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Aplikasi ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Situs ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
+
+**💫 Fitur/Modul dan Pembagian Tugas Modul**
 
 Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
-1. Melakukan pencarian buku yang tersedia dalam katalog perpustakaan 
+1. Melakukan pencarian buku yang tersedia dalam katalog perpustakaan - Samuel Widjaja
 
     Modul ini dirancang untuk membantu siswa menemukan dan mengakses buku dalam katalog perpustakaan. Siswa dapat menggunakan aplikasi ini untuk mencari buku berdasarkan judul atau kata kunci lainnya. Aplikasi akan memberikan informasi detail tentang buku-buku yang sesuai, termasuk sinopsis, ireview, dan quotes yang dapat ditambahkan oleh user. Siswa juga dapat melihat ketersediaan buku tersebut untuk dipinjam.
 
-2. Menyediakan alur peminjaman buku secara online yang memungkinkan siswa untuk meminjam buku yang mereka inginkan
+2. Menyediakan alur peminjaman buku secara online yang memungkinkan siswa untuk meminjam buku yang mereka inginkan - Sabrina Atha Shania
 
     Modul ini dirancang untuk membantu siswa memilih buku yang ingin mereka pinjam dan menandai buku tersebut untuk peminjaman. Proses peminjaman biasanya melibatkan menentukan periode peminjaman dan jumlah buku yang ingin dipinjam. Setelah buku dipinjam, siswa akan menerima konfirmasi peminjaman. 
 
-3. Menulis ulasan mengenai buku yang telah dibaca
+3. Menulis ulasan mengenai buku yang telah dibaca - Novrizal Airsyahputra
 
     Modul ini dirancang untuk menilai buku dan memberikan ulasan terperinci. Siswa dapat memberikan penilaian dalam bentuk like or dislike terhadap buku yang mereka baca, serta menulis ulasan yang mencakup aspek-aspek seperti plot, karakter, gaya penulisan, dan pesan yang disampaikan oleh buku tersebut.
 
-4. Menyajikan seluruh quotes yang ditambahkan oleh user berdasarkan judul buku 
+4. Menyajikan seluruh quotes yang ditambahkan oleh user berdasarkan judul buku - Fari Hafizh Ramadhan
 
     Modul ini dirancang untuk membagikan kutipan (quotes) dari buku yang siswa baca berdasarkan judul buku tertentu. Ide utamanya adalah menciptakan satu tempat di mana siswa dapat berbagi kutipan favorit mereka dari buku favorit mereka dan siswa lain dapat membaca kutipan buku tersebut.
 
-**Roles**
+**🌤️Role atau peran pengguna beserta deskripsinya**
 
-1. Modul
-    * Mencari buku - buku yang tersedia pada perpustakaan (katalog) - Samuel Widjaja
-    * Melakukan peminjaman online terhadap buku yang diinginkan - Sabrina Atha Shania
-    * Mereview buku yang telah dibaca - Novrizal Airsyahputra
-    * Menyajikan seluruh quotes yang ditambahkan oleh user berdasarkan judul buku - Fari Hafizh Ramadhan
-    
-2. Dasar aplikasi mobile
-    * Dashboard
-    * Homepage
-    * Index
-	
-    Di-handle oleh seluruh anggota.
+1. Guest: Dapat mengakses landing page, sign in (login) dan sign up (register)
+2. Peminjam Buku: Memiliki kemampuan untuk mencari buku dari daftar katalog dengan kata kunci, seperti judul. Pengguna juga dapat melihat detail buku seperti judul, sinopsis, rating ulasan, dan dapat juga menulis kutipan. Memiliki kemampuan untuk meminjam buku dari daftar katalog dengan cara mengajukan permintaan peminjaman. Mencari dan menulis kutipan/quotes kesukaan dari buku dan bisa di-post pada halaman “Quotes”. Diberikan kesempatan untuk menuliskan ulasan tentang buku yang telah mereka baca.
+3. Librarian: Mengelola katalog buku. Dapat menambah, mengedit, dan menghapus buku dari katalog
 
-**User**
+---
 
-1. Katalog Buku: Pengguna memiliki kemampuan untuk mencari buku dari daftar katalog dengan kata kunci, seperti judul. Pengguna juga dapat melihat detail buku seperti judul, sinopsis, rating ulasan, dan dapat juga menulis kutipan.
-2. Peminjaman Buku: Pengguna memiliki kemampuan untuk meminjam buku dari daftar katalog dengan cara mengajukan permintaan peminjaman. Pengguna juga diberikan fasilitas untuk memantau daftar buku yang saat ini mereka pinjam dan mengembalikannya ketika selesai membaca.
-3. Quotes dari Buku: Pengguna memiliki kemampuan untuk mencari dan menulis kutipan/quotes kesukaan dari buku dan bisa di-post pada halaman “Quotes”.
-4. Ulasan Buku: Pengguna diberikan kesempatan untuk menuliskan ulasan tentang buku yang telah mereka baca.
+### 🌔Alur integrasi dengan web service aplikasi web
 
-
-### Alur pengintegrasian dengan mobile service untuk terhubung dengan aplikasi mobile yang sudah dibuat saat Proyek Tengah Semester
-- masih menjadi kendala 
+Berikut adalah langkah-langkah yang akan dilakukan untuk mengintegrasikan aplikasi dengan server web:
+1. Mengimplementasikan sebuah wrapper class dengan menggunakan library http dan map untuk mendukung penggunaan cookie-based authentication pada aplikasi.
+2. Mengimplementasikan REST API pada Django (views.py) dengan menggunakan JsonResponse atau Django JSON Serializer.
+3. Mengimplementasikan desain front-end untuk aplikasi berdasarkan desain website yang sudah ada sebelumnya.
+4. Melakukan integrasi antara front-end dengan back-end dengan menggunakan konsep asynchronous HTTP.
 
 ### Tautan berita acara
 https://docs.google.com/spreadsheets/d/14apyXurh3-wqJJQWC5R91c0Tqf8GeQGRpwGzvzTd2o4/edit#gid=959655085
