@@ -18,7 +18,7 @@ https://www.kaggle.com/datasets/bilalyussef/google-books-dataset
 
 ---
 
-### Link Tautan:
+### Link Tautan referensi berdasarkan web TK PTS:
 http://mutualibri-a08-tk.pbp.cs.ui.ac.id/
 
 ---
@@ -84,7 +84,7 @@ Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
 
 
 ### Alur pengintegrasian dengan mobile service untuk terhubung dengan aplikasi mobile yang sudah dibuat saat Proyek Tengah Semester
-
+- masih menjadi kendala 
 
 ### Tautan berita acara
 https://docs.google.com/spreadsheets/d/14apyXurh3-wqJJQWC5R91c0Tqf8GeQGRpwGzvzTd2o4/edit#gid=959655085
