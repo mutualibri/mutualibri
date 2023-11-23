@@ -1,6 +1,6 @@
 # mutualibri
 
-![Jekyll site CI](https://github.com/mutualibri/mutualibri/workflows/Jekyll%20site%20CI/badge.svg)
+![Jekyll site CI](https://github.com/gede-books/gede-books/workflows/Jekyll%20site%20CI/badge.svg)
 
 ### 👩🏻🧔🏻‍♂️ Developer Team :
 * 2206083691 - Fari Hafizh Ramadhan
