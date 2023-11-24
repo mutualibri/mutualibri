@@ -2,6 +2,8 @@
 
 ![Jekyll site CI](https://github.com/gede-books/gede-books/workflows/Jekyll%20site%20CI/badge.svg)
 
+[![Build status](https://build.appcenter.ms/v0.1/apps/d98657ab-c206-4a95-a945-454f014278fd/branches/main/badge)](https://appcenter.ms)
+
 ### 👩🏻🧔🏻‍♂️ Developer Team :
 * 2206083691 - Fari Hafizh Ramadhan
 * 2206081780 - Novrizal Airsyahputra
@@ -12,6 +14,11 @@
 
 ### 📒 Nama Aplikasi:
 mutualibri
+
+---
+
+### 🤖 Link Download Aplikasi:
+https://install.appcenter.ms/orgs/mutualibri/apps/mutualibri/distribution_groups/public
 
 ---
 
