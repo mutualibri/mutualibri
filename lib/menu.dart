@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mutualibri/widgets/bottom_drawer.dart';
 
 class ShopItem {
   final String name;
@@ -23,6 +24,7 @@ class MyHomePage extends StatelessWidget {
           'Shopping List',
         ),
       ),
+      bottomNavigationBar: BottomNavigationBarExampleApp() ,
       body: SingleChildScrollView(
         // Widget wrapper yang dapat discroll
         child: Padding(
