@@ -14,7 +14,9 @@ class MyHomePage extends StatelessWidget {
     ShopItem("Lihat Produk", Icons.checklist),
     ShopItem("Tambah Produk", Icons.add_shopping_cart),
     ShopItem("Logout", Icons.logout),
+    ShopItem("Logout", Icons.logout),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,17 +26,14 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        // Widget wrapper yang dapat discroll
         child: Padding(
-          padding: const EdgeInsets.all(10.0), // Set padding dari halaman
+          padding: const EdgeInsets.all(10.0),
           child: Column(
-            // Widget untuk menampilkan children secara vertikal
             children: <Widget>[
               const Padding(
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
                 child: Text(
-                  'PBP Shop', // Text yang menandakan toko
+                  'Our Book Collections',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
@@ -42,17 +41,14 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              // Grid layout
               GridView.count(
-                // Container pada card kita.
                 primary: true,
                 padding: const EdgeInsets.all(20),
-                crossAxisSpacing: 10,
-                mainAxisSpacing: 10,
+                crossAxisSpacing: 20,
+                mainAxisSpacing: 50,
                 crossAxisCount: 3,
                 shrinkWrap: true,
-                children: items.map((ShopItem item) {
-                  // Iterasi untuk setiap item
+                children: items.map((item) {
                   return ShopCard(item);
                 }).toList(),
               ),
@@ -64,46 +60,110 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
+class HoverText extends StatefulWidget {
+  final String text;
+  final Color defaultColor;
+  final Color hoverColor;
+
+  const HoverText({
+    required this.text,
+    required this.defaultColor,
+    required this.hoverColor,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  _HoverTextState createState() => _HoverTextState();
+}
+
+class _HoverTextState extends State<HoverText> {
+  bool isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => _updateHover(true),
+      onExit: (_) => _updateHover(false),
+      child: Text(
+        widget.text,
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: isHovered ? widget.hoverColor : widget.defaultColor,
+        ),
+      ),
+    );
+  }
+
+  void _updateHover(bool hoverStatus) {
+    if (isHovered != hoverStatus) {
+      setState(() {
+        isHovered = hoverStatus;
+      });
+    }
+  }
+}
+
 class ShopCard extends StatelessWidget {
   final ShopItem item;
 
-  const ShopCard(this.item, {super.key}); // Constructor
+  const ShopCard(this.item, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.indigo,
-      child: InkWell(
-        // Area responsive terhadap sentuhan
-        onTap: () {
-          // Memunculkan SnackBar ketika diklik
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(SnackBar(
-                content: Text("Kamu telah menekan tombol ${item.name}!")));
-        },
-        child: Container(
-          // Container untuk menyimpan Icon dan Text
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
+      child: Container(
+        padding: const EdgeInsets.all(10),
+        height: 1000,
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              InkWell(
+                onTap: () {
+                  ScaffoldMessenger.of(context)
+                    ..hideCurrentSnackBar()
+                    ..showSnackBar(
+                      SnackBar(
+                        content: Text("You pressed ${item.name}!"),
+                      ),
+                    );
+                },
+                child: Icon(
                   item.icon,
-                  color: Colors.white,
+                  color: const Color.fromARGB(255, 4, 4, 4),
                   size: 30.0,
                 ),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
+              ),
+              BookName(),
+            ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class BookName extends StatelessWidget {
+  const BookName({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        ScaffoldMessenger.of(context)
+          ..hideCurrentSnackBar()
+          ..showSnackBar(
+            SnackBar(
+              content: Text("You clicked on Additional Text"),
+            ),
+          );
+      },
+      child: HoverText(
+        text: 'Additional Text',
+        defaultColor: Colors.black,
+        hoverColor: Colors.blue,
       ),
     );
   }
