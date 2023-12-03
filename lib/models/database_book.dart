@@ -9,25 +9,25 @@ List<Book> bookFromJson(String str) => List<Book>.from(json.decode(str).map((x) 
 String bookToJson(List<Book> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
 class Book {
-    int pk;
     Model model;
+    int pk;
     Fields fields;
 
     Book({
-        required this.pk,
         required this.model,
+        required this.pk,
         required this.fields,
     });
 
     factory Book.fromJson(Map<String, dynamic> json) => Book(
-        pk: json["pk"],
         model: modelValues.map[json["model"]]!,
+        pk: json["pk"],
         fields: Fields.fromJson(json["fields"]),
     );
 
     Map<String, dynamic> toJson() => {
-        "pk": pk,
         "model": modelValues.reverse[model],
+        "pk": pk,
         "fields": fields.toJson(),
     };
 }
@@ -127,7 +127,7 @@ enum Model {
 }
 
 final modelValues = EnumValues({
-    "book.Book": Model.BOOK_BOOK
+    "book.book": Model.BOOK_BOOK
 });
 
 class EnumValues<T> {
