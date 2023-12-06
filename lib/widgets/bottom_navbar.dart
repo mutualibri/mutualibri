@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-
-/// Flutter code sample for [BottomNavigationBar].
+import 'package:mutualibri/screens/review_page.dart';
 
 void main() => runApp(const BottomNavigationBarExampleApp());
 
 class BottomNavigationBarExampleApp extends StatelessWidget {
-  const BottomNavigationBarExampleApp({super.key});
+  const BottomNavigationBarExampleApp({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +15,7 @@ class BottomNavigationBarExampleApp extends StatelessWidget {
 }
 
 class BottomNavigationBarExample extends StatefulWidget {
-  const BottomNavigationBarExample({super.key});
+  const BottomNavigationBarExample({Key? key});
 
   @override
   State<BottomNavigationBarExample> createState() =>
@@ -26,35 +25,21 @@ class BottomNavigationBarExample extends StatefulWidget {
 class _BottomNavigationBarExampleState
     extends State<BottomNavigationBarExample> {
   int _selectedIndex = 0;
-  // static const TextStyle optionStyle =
-  //     TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  // static const List<Widget> _widgetOptions = <Widget>[
-  //   Text(
-  //     'Index 0: Home',
-  //     style: optionStyle,
-  //   ),
-  //   Text(
-  //     'Index 1: Checkout',
-  //     style: optionStyle,
-  //   ),
-  //   Text(
-  //     'Index 2: Review',
-  //     style: optionStyle,
-  //   ),
-  //   Text(
-  //     'Index 3: Quotes',
-  //     style: optionStyle,
-  //   ),
-  //   Text(
-  //     'Index 4: Profile',
-  //     style: optionStyle,
-  //   ),
-  // ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    if (index == 2) {
+      // If Review is tapped, navigate to the ReviewPage
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ReviewPage(),
+        ),
+      );
+    } else {
+      setState(() {
+        _selectedIndex = index;
+      });
+    }
   }
 
   @override
@@ -63,33 +48,45 @@ class _BottomNavigationBarExampleState
       appBar: AppBar(
         title: const Text('mutualibri'),
       ),
-      // body: Center(
-      //   child: _widgetOptions.elementAt(_selectedIndex),
-      // ),
       bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
+        items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Tooltip(
+              message: 'Home',
+              child: Icon(Icons.home),
+            ),
             label: 'Home',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.book),
+            icon: Tooltip(
+              message: 'Checkout',
+              child: Icon(Icons.book),
+            ),
             label: 'Checkout',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.reviews),
+            icon: Tooltip(
+              message: 'Review',
+              child: Icon(Icons.reviews),
+            ),
             label: 'Review',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.comment),
+            icon: Tooltip(
+              message: 'Quotes',
+              child: Icon(Icons.comment),
+            ),
             label: 'Quotes',
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Tooltip(
+              message: 'Profile',
+              child: Icon(Icons.person),
+            ),
             label: 'Profile',
             backgroundColor: Colors.blue,
           ),

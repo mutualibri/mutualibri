@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mutualibri/widgets/bottom_drawer.dart';
+import 'package:mutualibri/widgets/bottom_navbar.dart';
 
 class ShopItem {
   final String name;
@@ -80,10 +80,10 @@ class ShopCard extends StatelessWidget {
         // Area responsive terhadap sentuhan
         onTap: () {
           // Memunculkan SnackBar ketika diklik
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(SnackBar(
-                content: Text("Kamu telah menekan tombol ${item.name}!")));
+          // ScaffoldMessenger.of(context)
+          //   ..hideCurrentSnackBar()
+          //   ..showSnackBar(SnackBar(
+          //       content: Text("Kamu telah menekan tombol ${item.name}!")));
         },
         child: Container(
           // Container untuk menyimpan Icon dan Text
