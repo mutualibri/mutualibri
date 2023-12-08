@@ -6,6 +6,8 @@ import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/one_book.dart';
 import 'package:mutualibri/screens/lend/lend_detailbook.dart';
 import 'package:mutualibri/screens/menu.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
+import 'package:provider/provider.dart';
 
 class LendListPage extends StatefulWidget {
   const LendListPage({Key? key}) : super(key: key);
@@ -16,24 +18,22 @@ class LendListPage extends StatefulWidget {
 
 class _LendListState extends State<LendListPage> {
   Future<List<OneBook>> fetchProduct() async {
-    var url = Uri.parse('http://127.0.0.1:8000/json/');
-    var response = await http.get(
-      url,
-      headers: {"Content-Type": "application/json"},
-    );
+    final request = context.watch<CookieRequest>();
+    String url = 'http://127.0.0.1:8000/json/';
 
-    var data = jsonDecode(utf8.decode(response.bodyBytes));
+    var response = await request.get(url);
 
     List<OneBook> list_product = [];
-    for (var d in data) {
+    for (var d in response) {
       if (d != null) {
         list_product.add(OneBook.fromJson(d));
+        
       }
     }
     return list_product;
   }
 
-  Future<void> deleteData(int index) async {
+  Future<void> deleteData(OneBook data) async {
     bool confirmDelete = await showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -59,24 +59,20 @@ class _LendListState extends State<LendListPage> {
     );
 
     if (confirmDelete == true) {
-      var url =
-          Uri.parse('http://127.0.0.1:8000/book/delete-lend-flutter/$index');
-      var response = await http.delete(url);
+      final cookieRequest = context.read<CookieRequest>();
+      String url = 'http://127.0.0.1:8000/delete-lend-flutter/';
 
-      if (response.statusCode == 200) {
-        print('Data deleted');
-      } else {
-        print('Error deleting data');
-      }
-
-      setState(() {
+      try {
+        var response = await cookieRequest.post(url, jsonEncode(data));
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (context) => LendListPage(),
           ),
         );
-      });
+      } catch (error) {
+        print('Error: $error');
+      }
     }
   }
 
@@ -159,7 +155,7 @@ class _LendListState extends State<LendListPage> {
                               SizedBox(height: 10),
                               ElevatedButton(
                                 onPressed: () {
-                                  deleteData(index);
+                                  deleteData(snapshot.data![index]);
                                 },
                                 child: Text('Finish your lend'),
                               ),
