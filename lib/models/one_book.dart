@@ -4,6 +4,8 @@
 
 import 'dart:convert';
 
+import 'package:mutualibri/models/database_book.dart';
+
 List<OneBook> oneBookFromJson(String str) => List<OneBook>.from(json.decode(str).map((x) => OneBook.fromJson(x)));
 
 String oneBookToJson(List<OneBook> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));

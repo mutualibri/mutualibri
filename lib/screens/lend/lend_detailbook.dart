@@ -19,19 +19,17 @@ class BookPage extends StatelessWidget {
           style: TextStyle(color: Colors.black),
         ),
         actions: [
-          // Add your image or icon to the right side of the AppBar
           IconButton(
             icon: Image.asset(
-              'assets/images/Logo.png', // Replace with your image asset
-              height: 50, // Set the desired height
-              width: 50, // Set the desired width
+              'assets/images/Logo.png',
+              height: 50,
+              width: 50,
             ),
             onPressed: () {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => MyHomePage()),
               );
-              // Add any action you want when the image/icon is pressed
             },
           ),
         ],
@@ -42,41 +40,63 @@ class BookPage extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.all(20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Text(
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
                       book.fields.title,
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 30.0,
                       ),
                     ),
-                  ),
-                  const SizedBox(height: 10),
-                  SizedBox(
-                    height: 400, // Set the desired height for the image
-                    width: double.infinity,
-                    child: Image.network(
-                      "${book.fields.image}",
+                    const SizedBox(height: 10),
+                    Container(
+                      color: const Color(
+                          0xFFFDE8C9), // Set the desired background color
+                      padding: const EdgeInsets.all(20),
+                      constraints: BoxConstraints(
+                        maxWidth: 300.0, // Set the maximum width you desire
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SizedBox(
+                            height: 400,
+                            width: double.infinity,
+                            child: Image.network(
+                              "${book.fields.image}",
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, left: 20),
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        height: 20,
-                        width: 20,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(25),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 20, left: 20),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          height: 20,
+                          width: 20,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25),
+                          ),
                         ),
                       ),
                     ),
-                  ),
+                  ],
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
                   RichText(
                     text: TextSpan(
                       children: [
@@ -96,12 +116,12 @@ class BookPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   RichText(
                     text: TextSpan(
                       children: [
                         const TextSpan(
-                          text: 'Generes: \n',
+                          text: 'Genres: \n',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16.0,
@@ -116,7 +136,7 @@ class BookPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 20),
                   RichText(
                     text: TextSpan(
                       children: [

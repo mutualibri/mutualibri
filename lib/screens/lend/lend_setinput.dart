@@ -133,7 +133,7 @@ class _BorrowPageState extends State<BorrowPage> {
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         final response = await request.postJson(
-                          "http://127.0.0.1:8000/book/create-lend-flutter/",
+                          "http://127.0.0.1:8000/create-lend-flutter/",
                           jsonEncode(<String, String>{
                             'book': widget.book.fields.number.toString(),
                             'startDate': startDate.toString(),
