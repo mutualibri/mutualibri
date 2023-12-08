@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mutualibri/menu.dart';
+import 'package:mutualibri/widgets/menu.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:mutualibri/screens/register.dart';

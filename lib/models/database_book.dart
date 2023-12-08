@@ -140,4 +140,14 @@ class EnumValues<T> {
         reverseMap = map.map((k, v) => MapEntry(v, k));
         return reverseMap;
     }
+
+ bool matchesQuery(String query) {
+    // Check if any relevant fields match the search query
+    var fields;
+    return fields.title.toLowerCase().contains(query.toLowerCase()) ||
+        fields.author.toLowerCase().contains(query.toLowerCase()) ||
+        fields.generes.toLowerCase().contains(query.toLowerCase()) ||
+        fields.description.toLowerCase().contains(query.toLowerCase());
+    // Add more fields as needed
+  }
 }

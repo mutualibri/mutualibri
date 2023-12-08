@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mutualibri/screens/login.dart';
+import 'package:mutualibri/screens/register.dart';
 
 class ShopItem {
   final String name;
@@ -24,17 +26,15 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        // Widget wrapper yang dapat discroll
         child: Padding(
-          padding: const EdgeInsets.all(10.0), // Set padding dari halaman
+          padding: const EdgeInsets.all(10.0), 
           child: Column(
-            // Widget untuk menampilkan children secara vertikal
             children: <Widget>[
+              SearchBar(onSearch: (String ) {  },),
               const Padding(
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
                 child: Text(
-                  'PBP Shop', // Text yang menandakan toko
+                  'PBP Shop', 
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
@@ -42,9 +42,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              // Grid layout
               GridView.count(
-                // Container pada card kita.
                 primary: true,
                 padding: const EdgeInsets.all(20),
                 crossAxisSpacing: 10,
@@ -52,7 +50,6 @@ class MyHomePage extends StatelessWidget {
                 crossAxisCount: 3,
                 shrinkWrap: true,
                 children: items.map((ShopItem item) {
-                  // Iterasi untuk setiap item
                   return ShopCard(item);
                 }).toList(),
               ),
@@ -64,27 +61,23 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-
 class ShopCard extends StatelessWidget {
   final ShopItem item;
 
-  const ShopCard(this.item, {super.key}); // Constructor
+  const ShopCard(this.item, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.indigo,
       child: InkWell(
-        // Area responsive terhadap sentuhan
         onTap: () {
-          // Memunculkan SnackBar ketika diklik
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
         },
         child: Container(
-          // Container untuk menyimpan Icon dan Text
           padding: const EdgeInsets.all(8),
           child: Center(
             child: Column(
@@ -105,6 +98,79 @@ class ShopCard extends StatelessWidget {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+class SearchBar extends StatelessWidget {
+  final Function(String) onSearch;
+
+  SearchBar({required this.onSearch});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(16.0),
+      color: Color(0xFFFBB825), 
+      child: Row(
+        children: [
+          Expanded(
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: 'Search books...',
+                hintStyle: TextStyle(color: Colors.white),
+                prefixIcon: Icon(Icons.search, color: Colors.white),
+                filled: true,
+                fillColor: Color(0xFFE09E45), 
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                  borderSide: BorderSide.none, 
+                ),
+              ),
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          SizedBox(width: 16.0),
+          ElevatedButton(
+            onPressed: () {
+              onSearch("Search books..."); 
+            },
+            style: ElevatedButton.styleFrom(
+              primary: Colors.white, 
+            ),
+            child: Text(
+              'Search',
+              style: TextStyle(color: Color(0xFFFBB825)), 
+            ),
+          ),
+          SizedBox(width: 16.0),
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPage()),
+              );
+            },
+            child: Text(
+              'Login',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+          SizedBox(width: 8.0),
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => RegisterPage()),
+              );
+            },
+            child: Text(
+              'Signup',
+              style: TextStyle(color: Colors.white),
+            ),
+          ),
+        ],
       ),
     );
   }

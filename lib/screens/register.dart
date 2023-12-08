@@ -46,15 +46,14 @@ class _RegisterPageState extends State<RegisterPage> {
             SizedBox(height: 32.0),
             ElevatedButton(
               onPressed: () {
-                // Implement your registration logic here
                 String username = _usernameController.text;
                 String password = _passwordController.text;
 
-                // You can add your registration logic here
-                // For simplicity, let's just print the values for now
-                print('Username: $username');
-                print('Password: $password');
-              },
+                Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => MyApp()),
+    );
+  },
               child: Text('Register'),
             ),
           ],
