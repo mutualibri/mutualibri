@@ -22,11 +22,6 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Universe',
-        ),
-      ),
       body: SingleChildScrollView(
         // Widget wrapper yang dapat discroll
         child: Padding(

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:mutualibri/screens/lend/lend_listlend.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:mutualibri/screens/login.dart';
-import 'package:mutualibri/screens/book.dart';
+import 'package:mutualibri/screens/login/login.dart';
 import 'package:mutualibri/screens/list_product.dart';
+import 'package:mutualibri/screens/lend/lend_listlend.dart';
 
 class LibraryItem {
   final String name;
@@ -34,13 +35,13 @@ class LibraryCard extends StatelessWidget {
 
           // Navigate ke route yang sesuai (tergantung jenis tombol)
           if (item.name == "Tambah Item") {
-            // Navigator.push(
-            //   context,
-            //   MaterialPageRoute(
-            // //     builder: (context) =>
-            // //         // ShopFormPage(), // ShopFormPage adalah halaman yang ingin Anda navigasikan.
-            //   ),
-            // );
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    LendListPage(), // ShopFormPage adalah halaman yang ingin Anda navigasikan.
+              ),
+            );
           } else if (item.name == "Lihat Item") {
             Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const ProductPage()));

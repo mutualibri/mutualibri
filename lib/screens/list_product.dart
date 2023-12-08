@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:mutualibri/models/database_book.dart';
-import 'package:mutualibri/screens/book.dart';
+import 'package:mutualibri/screens/lend/lend_detailbook.dart';
+import 'package:mutualibri/screens/menu.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({Key? key}) : super(key: key);
@@ -36,9 +37,27 @@ class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Daftar Buku'),
-        ),
+       appBar: AppBar(
+        backgroundColor: const Color(0xFFfbb825),
+        title: const Text('Daftar Buku'),
+        actions: [
+          // Add your image or icon to the right side of the AppBar
+          IconButton(
+            icon: Image.asset(
+              'assets/images/Logo.png', // Replace with your image asset
+              height: 50, // Set the desired height
+              width: 50, // Set the desired width
+            ),
+            onPressed: () {
+              Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => MyHomePage()),
+                  );
+              // Add any action you want when the image/icon is pressed
+            },
+          ),
+        ],
+      ),
         body: FutureBuilder(
             future: fetchProduct(),
             builder: (context, AsyncSnapshot snapshot) {
