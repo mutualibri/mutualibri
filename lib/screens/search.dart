@@ -26,26 +26,16 @@ class SearchBar extends StatelessWidget {
           ElevatedButton(
             onPressed: () {
               // Navigasi ke halaman login
-              Navigator.push(
+              Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(builder: (context) => LoginPage()),
               );
             },
-            child: Text('Login'),
-          ),
-          SizedBox(width: 8.0),
-          OutlinedButton(
-            onPressed: () {
-              // Navigasi ke halaman register
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => RegisterPage()),
-              );
-            },
-            child: Text('Register'),
+            child: Text('Logout'),
           ),
         ],
       ),
     );
   }
 }
+

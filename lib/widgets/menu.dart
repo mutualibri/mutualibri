@@ -112,7 +112,7 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16.0),
-      color: Color(0xFFFBB825), 
+      color: Color(0xFFFBB825),
       child: Row(
         children: [
           Expanded(
@@ -122,10 +122,10 @@ class SearchBar extends StatelessWidget {
                 hintStyle: TextStyle(color: Colors.white),
                 prefixIcon: Icon(Icons.search, color: Colors.white),
                 filled: true,
-                fillColor: Color(0xFFE09E45), 
+                fillColor: Color(0xFFE09E45),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
-                  borderSide: BorderSide.none, 
+                  borderSide: BorderSide.none,
                 ),
               ),
               style: TextStyle(color: Colors.white),
@@ -134,39 +134,26 @@ class SearchBar extends StatelessWidget {
           SizedBox(width: 16.0),
           ElevatedButton(
             onPressed: () {
-              onSearch("Search books..."); 
+              onSearch("Search books...");
             },
             style: ElevatedButton.styleFrom(
-              primary: Colors.white, 
+              primary: Colors.white,
             ),
             child: Text(
               'Search',
-              style: TextStyle(color: Color(0xFFFBB825)), 
+              style: TextStyle(color: Color(0xFFFBB825)),
             ),
           ),
           SizedBox(width: 16.0),
           TextButton(
             onPressed: () {
-              Navigator.push(
+              Navigator.pushReplacement( // Use pushReplacement to replace the current page
                 context,
                 MaterialPageRoute(builder: (context) => LoginPage()),
               );
             },
             child: Text(
-              'Login',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-          SizedBox(width: 8.0),
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => RegisterPage()),
-              );
-            },
-            child: Text(
-              'Signup',
+              'Logout',
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -175,3 +162,4 @@ class SearchBar extends StatelessWidget {
     );
   }
 }
+
