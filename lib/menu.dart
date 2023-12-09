@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mutualibri/widgets/catalog.dart';
 
 class ShopItem {
   final String name;
@@ -41,129 +42,10 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              GridView.count(
-                primary: true,
-                padding: const EdgeInsets.all(20),
-                crossAxisSpacing: 20,
-                mainAxisSpacing: 50,
-                crossAxisCount: 3,
-                shrinkWrap: true,
-                children: items.map((item) {
-                  return ShopCard(item);
-                }).toList(),
-              ),
+              CatalogTemplate(),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class HoverText extends StatefulWidget {
-  final String text;
-  final Color defaultColor;
-  final Color hoverColor;
-
-  const HoverText({
-    required this.text,
-    required this.defaultColor,
-    required this.hoverColor,
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  _HoverTextState createState() => _HoverTextState();
-}
-
-class _HoverTextState extends State<HoverText> {
-  bool isHovered = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => _updateHover(true),
-      onExit: (_) => _updateHover(false),
-      child: Text(
-        widget.text,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: isHovered ? widget.hoverColor : widget.defaultColor,
-        ),
-      ),
-    );
-  }
-
-  void _updateHover(bool hoverStatus) {
-    if (isHovered != hoverStatus) {
-      setState(() {
-        isHovered = hoverStatus;
-      });
-    }
-  }
-}
-
-class ShopCard extends StatelessWidget {
-  final ShopItem item;
-
-  const ShopCard(this.item, {Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: Container(
-        padding: const EdgeInsets.all(10),
-        height: 1000,
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              InkWell(
-                onTap: () {
-                  ScaffoldMessenger.of(context)
-                    ..hideCurrentSnackBar()
-                    ..showSnackBar(
-                      SnackBar(
-                        content: Text("You pressed ${item.name}!"),
-                      ),
-                    );
-                },
-                child: Icon(
-                  item.icon,
-                  color: const Color.fromARGB(255, 4, 4, 4),
-                  size: 30.0,
-                ),
-              ),
-              BookName(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class BookName extends StatelessWidget {
-  const BookName({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        ScaffoldMessenger.of(context)
-          ..hideCurrentSnackBar()
-          ..showSnackBar(
-            SnackBar(
-              content: Text("You clicked on Additional Text"),
-            ),
-          );
-      },
-      child: HoverText(
-        text: 'Additional Text',
-        defaultColor: Colors.black,
-        hoverColor: Colors.blue,
       ),
     );
   }
