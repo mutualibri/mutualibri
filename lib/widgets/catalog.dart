@@ -48,7 +48,7 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Daftar Buku'),
+        title: const Text('Catalog'),
       ),
       body: FutureBuilder(
         future: fetchProduct(),

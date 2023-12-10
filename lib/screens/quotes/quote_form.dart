@@ -24,10 +24,10 @@ class _QuoteFormState extends State<QuoteForm> {
       appBar: AppBar(
         title: const Center(
           child: Text(
-            'Form Tambah Quote',
+            'Quote',
           ),
         ),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Color.fromARGB(255, 251, 207, 103),
         foregroundColor: Colors.white,
       ),
       // TODO: Tambahkan drawer yang sudah dibuat di sini
@@ -88,7 +88,8 @@ class _QuoteFormState extends State<QuoteForm> {
               padding: const EdgeInsets.all(8.0),
               child: ElevatedButton(
                 style: ButtonStyle(
-                  backgroundColor: MaterialStateProperty.all(Colors.indigo),
+                  backgroundColor: MaterialStateProperty.all(
+                      Color.fromARGB(255, 241, 188, 74)),
                 ),
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
@@ -102,7 +103,7 @@ class _QuoteFormState extends State<QuoteForm> {
                         }));
                     if (response['status'] == 'success') {
                       ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                        content: Text("Produk baru berhasil disimpan!"),
+                        content: Text("Quote baru berhasil disimpan!"),
                       ));
                       Navigator.pushReplacement(
                         context,

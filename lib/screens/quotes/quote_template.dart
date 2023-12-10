@@ -3,6 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:mutualibri/models/quotes_model.dart';
 import 'package:mutualibri/screens/quotes/quote_form.dart';
+import 'package:mutualibri/screens/quotes/quote_null.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -33,24 +34,22 @@ class _QuotePageState extends State<QuotePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Quote'),
+        title: const Center(
+          child: Text(
+            'Quote',
+          ),
+        ),
+        backgroundColor: Color.fromARGB(255, 251, 207, 103),
+        foregroundColor: Colors.white,
       ),
       body: FutureBuilder(
           future: fetchQuote(),
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
-              return const Center(child: CircularProgressIndicator());
+              return QuoteNull();
             } else {
               if (!snapshot.hasData) {
-                return const Column(
-                  children: [
-                    Text(
-                      "Tidak ada data produk.",
-                      style: TextStyle(color: Color(0xff59A5D8), fontSize: 20),
-                    ),
-                    SizedBox(height: 8),
-                  ],
-                );
+                return QuoteNull();
               } else {
                 return Container(
                     child: ListView.builder(
@@ -59,30 +58,47 @@ class _QuotePageState extends State<QuotePage> {
                               margin: const EdgeInsets.symmetric(
                                   horizontal: 16, vertical: 12),
                               padding: const EdgeInsets.all(20.0),
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(
+                                    10.0), // Ubah nilai sesuai keinginan Anda
+                                border: Border.all(
+                                  color: Colors.black,
+                                  width: 2.0,
+                                ),
+                              ),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "${snapshot.data![index].fields.bookName}",
-                                    style: const TextStyle(
-                                      fontSize: 18.0,
-                                      fontWeight: FontWeight.bold,
+                                  Center(
+                                    child: Text(
+                                      "${snapshot.data![index].fields.bookName}",
+                                      style: const TextStyle(
+                                        fontSize: 18.0,
+                                        fontWeight: FontWeight.bold,
+                                      ),
                                     ),
                                   ),
                                   const SizedBox(height: 10),
                                   Text(
                                       "${snapshot.data![index].fields.quotes}"),
                                   const SizedBox(height: 10),
-                                  Text("${snapshot.data![index].fields.user}")
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                          "@${snapshot.data![index].fields.user}"),
+                                      // Tambahkan widget lain di sini jika diperlukan
+                                    ],
+                                  ),
                                 ],
                               ),
                             )));
               }
             }
           }),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
+      floatingActionButton: ElevatedButton(
+        onPressed: () async {
           Navigator.push(
             context,
             MaterialPageRoute(
@@ -90,8 +106,37 @@ class _QuotePageState extends State<QuotePage> {
             ),
           );
         },
-        child: Icon(Icons.add),
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(20.0),
+          ),
+          backgroundColor: Color.fromARGB(255, 241, 188, 74),
+        ),
+        child: Text("Add your quote here!"),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton: Align(
+      //   alignment: Alignment.bottomCenter,
+      //   child: Padding(
+      //     padding: const EdgeInsets.all(8.0),
+      //     child: ElevatedButton(
+      //       style: ButtonStyle(
+      //         backgroundColor:
+      //             MaterialStateProperty.all(Color.fromARGB(255, 251, 207, 103)),
+      //       ),
+      //       onPressed: () async {
+      //         Navigator.push(
+      //           context,
+      //           MaterialPageRoute(builder: (context) => QuoteForm()),
+      //         );
+      //       },
+      //       child: const Text(
+      //         "Save",
+      //         style: TextStyle(color: Colors.white),
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }

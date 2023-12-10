@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                   String uname = response['username'];
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => CatalogTemplate()),
+                    MaterialPageRoute(builder: (context) => QuotePage()),
                   );
                   ScaffoldMessenger.of(context)
                     ..hideCurrentSnackBar()
