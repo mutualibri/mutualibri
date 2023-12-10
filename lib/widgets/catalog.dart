@@ -15,7 +15,7 @@ class CatalogTemplate extends StatefulWidget {
 class _CatalogTemplateState extends State<CatalogTemplate> {
   Future<List<Book>> fetchProduct() async {
     final request = context.watch<CookieRequest>();
-    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/book/json/';
+    String url = 'http://127.0.0.1:8000/book/json/';
     var response = await request.get(url);
 
     // melakukan konversi data json menjadi object Product
@@ -26,6 +26,22 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
       }
     }
     return list_product;
+  }
+
+  String _limitSubstring(String input) {
+    List<String> parts = [];
+
+    // Memeriksa karakter "(" dan ":" untuk memotong string
+    if (input.contains("(")) {
+      parts = input.split("(");
+    } else if (input.contains(":")) {
+      parts = input.split(":");
+    } else {
+      parts.add(input);
+    }
+
+    return parts.first
+        .trim(); // Mengambil bagian pertama setelah melakukan split dan menghapus spasi di awal dan akhir
   }
 
   @override
@@ -53,23 +69,38 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
             } else {
               return GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3, // Jumlah elemen dalam satu baris
+                  crossAxisCount: 2, // Jumlah elemen dalam satu baris
                   crossAxisSpacing: 8.0,
                   mainAxisSpacing: 8.0,
+                  childAspectRatio: 0.5,
                 ),
                 itemCount: snapshot.data!.length,
                 itemBuilder: (_, index) => Container(
                   margin:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(8.0),
+                  height: 800, // Atur tinggi container sesuai kebutuhan
+                  width: 200, // Atur lebar container sesuai kebutuhan
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Image.network("${snapshot.data![index].fields.image}"),
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            "${snapshot.data![index].fields.image}",
+                            height: 150.0, // Sesuaikan tinggi gambar
+                            width: double
+                                .infinity, // Lebar gambar mengikuti container
+                            fit: BoxFit.cover, // Atur sesuai kebutuhan
+                          ),
+                        ),
+                      ),
                       const SizedBox(height: 10),
                       HoverText(
-                        text: "${snapshot.data![index].fields.title}",
+                        text: _limitSubstring(
+                            "${snapshot.data![index].fields.title}"),
                         defaultColor: Colors.black,
                         hoverColor: Colors.blue,
                       ),
