@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:mutualibri/screens/review_list.dart';
 import 'package:mutualibri/screens/review_page.dart';
-
-void main() => runApp(const BottomNavigationBarExampleApp());
 
 class BottomNavigationBarExampleApp extends StatelessWidget {
   const BottomNavigationBarExampleApp({Key? key});
@@ -48,52 +48,43 @@ class _BottomNavigationBarExampleState
       appBar: AppBar(
         title: const Text('mutualibri'),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Tooltip(
-              message: 'Home',
-              child: Icon(Icons.home),
-            ),
-            label: 'Home',
-            backgroundColor: Colors.blue,
+      bottomNavigationBar: Container(
+        color: Colors.black,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
+          child: GNav(
+            backgroundColor: Colors.black,
+            color: Colors.white,
+            activeColor: Colors.white,
+            tabBackgroundColor: Colors.grey.shade800,
+            padding: EdgeInsets.all(16),
+            gap: 8, // Gap antara icon dan text
+            tabs: const [
+              GButton(
+                icon: Icons.home,
+                text: 'Home',
+              ),
+              GButton(
+                icon: Icons.book,
+                text: 'Checkout',
+              ),
+              GButton(
+                icon: Icons.reviews,
+                text: 'Review',
+              ),
+              GButton(
+                icon: Icons.comment,
+                text: 'Quotes',
+              ),
+              GButton(
+                icon: Icons.person,
+                text: 'Profile',
+              ),
+            ],
+            selectedIndex: _selectedIndex,
+            onTabChange: _onItemTapped,
           ),
-          BottomNavigationBarItem(
-            icon: Tooltip(
-              message: 'Checkout',
-              child: Icon(Icons.book),
-            ),
-            label: 'Checkout',
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: Tooltip(
-              message: 'Review',
-              child: Icon(Icons.reviews),
-            ),
-            label: 'Review',
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: Tooltip(
-              message: 'Quotes',
-              child: Icon(Icons.comment),
-            ),
-            label: 'Quotes',
-            backgroundColor: Colors.blue,
-          ),
-          BottomNavigationBarItem(
-            icon: Tooltip(
-              message: 'Profile',
-              child: Icon(Icons.person),
-            ),
-            label: 'Profile',
-            backgroundColor: Colors.blue,
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.black,
-        onTap: _onItemTapped,
+        ),
       ),
     );
   }

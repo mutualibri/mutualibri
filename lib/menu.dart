@@ -16,27 +16,23 @@ class MyHomePage extends StatelessWidget {
     ShopItem("Tambah Produk", Icons.add_shopping_cart),
     ShopItem("Logout", Icons.logout),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Shopping List',
-        ),
+        title: const Text('Shopping List'),
       ),
-      bottomNavigationBar: BottomNavigationBarExampleApp() ,
+      bottomNavigationBar: BottomNavigationBarExample(),
       body: SingleChildScrollView(
-        // Widget wrapper yang dapat discroll
         child: Padding(
-          padding: const EdgeInsets.all(10.0), // Set padding dari halaman
+          padding: const EdgeInsets.all(10.0),
           child: Column(
-            // Widget untuk menampilkan children secara vertikal
             children: <Widget>[
               const Padding(
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
-                // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
                 child: Text(
-                  'PBP Shop', // Text yang menandakan toko
+                  'PBP Shop',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
@@ -44,9 +40,7 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              // Grid layout
               GridView.count(
-                // Container pada card kita.
                 primary: true,
                 padding: const EdgeInsets.all(20),
                 crossAxisSpacing: 10,
@@ -54,7 +48,6 @@ class MyHomePage extends StatelessWidget {
                 crossAxisCount: 3,
                 shrinkWrap: true,
                 children: items.map((ShopItem item) {
-                  // Iterasi untuk setiap item
                   return ShopCard(item);
                 }).toList(),
               ),
@@ -66,27 +59,20 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-
 class ShopCard extends StatelessWidget {
   final ShopItem item;
 
-  const ShopCard(this.item, {super.key}); // Constructor
+  const ShopCard(this.item, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.indigo,
       child: InkWell(
-        // Area responsive terhadap sentuhan
         onTap: () {
-          // Memunculkan SnackBar ketika diklik
-          // ScaffoldMessenger.of(context)
-          //   ..hideCurrentSnackBar()
-          //   ..showSnackBar(SnackBar(
-          //       content: Text("Kamu telah menekan tombol ${item.name}!")));
+          // Handle item click if needed
         },
         child: Container(
-          // Container untuk menyimpan Icon dan Text
           padding: const EdgeInsets.all(8),
           child: Center(
             child: Column(
