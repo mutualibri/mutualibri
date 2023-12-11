@@ -37,27 +37,27 @@ class _ProductPageState extends State<ProductPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       appBar: AppBar(
-        backgroundColor: const Color(0xFFfbb825),
-        title: const Text('Daftar Buku'),
-        actions: [
-          // Add your image or icon to the right side of the AppBar
-          IconButton(
-            icon: Image.asset(
-              'assets/images/Logo.png', // Replace with your image asset
-              height: 50, // Set the desired height
-              width: 50, // Set the desired width
+        appBar: AppBar(
+          backgroundColor: const Color(0xFFfbb825),
+          title: const Text('Daftar Buku'),
+          actions: [
+            // Add your image or icon to the right side of the AppBar
+            IconButton(
+              icon: Image.asset(
+                'assets/images/Logo.png', // Replace with your image asset
+                height: 50, // Set the desired height
+                width: 50, // Set the desired width
+              ),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyHomePage()),
+                );
+                // Add any action you want when the image/icon is pressed
+              },
             ),
-            onPressed: () {
-              Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(builder: (context) => MyHomePage()),
-                  );
-              // Add any action you want when the image/icon is pressed
-            },
-          ),
-        ],
-      ),
+          ],
+        ),
         body: FutureBuilder(
             future: fetchProduct(),
             builder: (context, AsyncSnapshot snapshot) {
