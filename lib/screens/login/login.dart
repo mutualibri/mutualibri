@@ -4,7 +4,6 @@ import 'package:mutualibri/screens/login/login_screen_top_image.dart';
 import 'package:mutualibri/screens/menu.dart';
 
 import 'package:flutter/material.dart';
-import 'package:mutualibri/screens/quotes/quote_template.dart';
 import 'package:mutualibri/widgets/catalog.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
