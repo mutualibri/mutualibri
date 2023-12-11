@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:mutualibri/models/database_book.dart';
+import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -53,6 +54,7 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
         ),
         backgroundColor: Color.fromARGB(255, 251, 207, 103),
       ),
+      bottomNavigationBar: const BottomNavigationBarExampleApp(),
       body: FutureBuilder(
         future: fetchProduct(),
         builder: (context, AsyncSnapshot snapshot) {
@@ -107,6 +109,7 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
                         defaultColor: Colors.black,
                         hoverColor: Colors.blue,
                       ),
+                      
                     ],
                   ),
                 ),

@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/one_book.dart';
+import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -93,6 +94,7 @@ class _LendListState extends State<LendListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: const BottomNavigationBarExampleApp(),
       body: Column(
         children: [
           Container(

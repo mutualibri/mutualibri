@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:mutualibri/constants.dart';
+import 'package:mutualibri/menu.dart';
+import 'package:mutualibri/screens/lend/lend_listlend.dart';
 import 'package:mutualibri/screens/review_list.dart';
+import 'package:mutualibri/widgets/catalog.dart';
 
 class BottomNavigationBarExampleApp extends StatelessWidget {
   const BottomNavigationBarExampleApp({Key? key});
@@ -34,6 +38,20 @@ class _BottomNavigationBarExampleState
           builder: (context) => ReviewProductPage(),
         ),
       );
+    } else if (index == 1) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => LendListPage(),
+        ),
+      );
+    } else if (index == 0) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => CatalogTemplate(),
+        ),
+      );
     } else {
       setState(() {
         _selectedIndex = index;
@@ -45,19 +63,39 @@ class _BottomNavigationBarExampleState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('mutualibri'),
+        backgroundColor: const Color(0xFFfbb825),
+        title: const Text(
+          'Our Collections',
+          style: TextStyle(color: Colors.black),
+        ),
+        actions: [
+          IconButton(
+            icon: Image.asset(
+              'assets/images/Logo.png',
+              height: 50,
+              width: 50,
+            ),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => MyHomePage()),
+              );
+            },
+          ),
+        ],
       ),
       bottomNavigationBar: Container(
-        color: Colors.black,
+        color: kPrimaryColor,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
           child: GNav(
-            backgroundColor: Colors.black,
+            backgroundColor: kPrimaryColor,
             color: Colors.white,
             activeColor: Colors.white,
             tabBackgroundColor: Colors.grey.shade800,
             padding: EdgeInsets.all(16),
             gap: 8, // Gap antara icon dan text
+            iconSize: 20,
             tabs: const [
               GButton(
                 icon: Icons.home,

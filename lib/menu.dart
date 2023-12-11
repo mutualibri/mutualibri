@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:mutualibri/widgets/catalog.dart';
 
 class ShopItem {
@@ -15,7 +16,6 @@ class MyHomePage extends StatelessWidget {
     ShopItem("Lihat Produk", Icons.checklist),
     ShopItem("Tambah Produk", Icons.add_shopping_cart),
     ShopItem("Logout", Icons.logout),
-    ShopItem("Logout", Icons.logout),
   ];
 
   @override
@@ -23,15 +23,16 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Shopping List',
+          'Mutualibri',
         ),
       ),
-      body: SingleChildScrollView(
+      bottomNavigationBar: const BottomNavigationBarExampleApp(),
+      body: const SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
           child: Column(
             children: <Widget>[
-              const Padding(
+              Padding(
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                 child: Text(
                   'Our Book Collections',

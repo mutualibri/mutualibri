@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mutualibri/screens/menu.dart';
+import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/screens/lend/lend_successlend.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
