@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:mutualibri/screens/menu.dart';
 import 'package:mutualibri/screens/login/login.dart';
+import 'package:mutualibri/screens/welcome/welcome_onboard.dart';
 import 'package:mutualibri/screens/welcome/welcome_screen.dart';
+import 'package:mutualibri/screens/welcome/welcome_screenonboard.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:mutualibri/constants.dart';
+import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
-  runApp(const MyApp());
+int? isviewed;
+Future<void> main() async {
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+  ));
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  isviewed = prefs.getInt('onBoard');
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,7 +32,7 @@ class MyApp extends StatelessWidget {
         return request;
       },
       child: MaterialApp(
-          title: 'Flutter Auth',
+          title: 'Mutualibri',
         theme: ThemeData(
             primaryColor: kPrimaryColor,
             scaffoldBackgroundColor: Colors.white,
@@ -47,7 +58,7 @@ class MyApp extends StatelessWidget {
                 borderSide: BorderSide.none,
               ),
             )),
-        home: const WelcomeScreen(),
+        home: isviewed != 0 ? OnBoard() : LoginPage(),
       )
     );
   }
