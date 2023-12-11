@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/screens/lend/lend_setinput.dart';
@@ -15,7 +16,7 @@ class BookPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFFfbb825),
         title: const Text(
-          'Detail Buku',
+          'LendBook',
           style: TextStyle(color: Colors.black),
         ),
         actions: [
@@ -51,26 +52,44 @@ class BookPage extends StatelessWidget {
                         fontSize: 30.0,
                       ),
                     ),
-                    const SizedBox(height: 10),
-                    Container(
-                      color: const Color(
-                          0xFFFDE8C9), // Set the desired background color
-                      padding: const EdgeInsets.all(20),
-                      constraints: BoxConstraints(
-                        maxWidth: 300.0, // Set the maximum width you desire
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: 400,
-                            width: double.infinity,
-                            child: Image.network(
-                              "${book.fields.image}",
-                            ),
-                          ),
-                        ],
+                    const SizedBox(height: 30),
+                    SizedBox(
+                      height: 400,
+                      width: double.infinity,
+                      child: Image.network(
+                        "${book.fields.image}",
+                        loadingBuilder: (BuildContext context, Widget child,
+                            ImageChunkEvent? loadingProgress) {
+                          if (loadingProgress == null) {
+                            // Image is fully loaded
+                            return child;
+                          } else {
+                            // Image is still loading, you can show a loading indicator or progress bar here
+                            return Center(
+                              child: CircularProgressIndicator(
+                                value: loadingProgress.expectedTotalBytes !=
+                                        null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        (loadingProgress.expectedTotalBytes ??
+                                            1)
+                                    : null,
+                              ),
+                            );
+                          }
+                        },
+                        errorBuilder: (BuildContext context, Object error,
+                            StackTrace? stackTrace) {
+                          // Image failed to load, you can show an error message or a placeholder image here
+                          return Center(
+                            child:
+                                SvgPicture.asset("assets/icons/ErrorImage.svg"),
+                          );
+                        },
+                        frameBuilder: (BuildContext context, Widget child,
+                            int? frame, bool wasSynchronouslyLoaded) {
+                          // After loading, you can perform additional actions if needed
+                          return child;
+                        },
                       ),
                     ),
                     Padding(
@@ -136,7 +155,7 @@ class BookPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 10),
                   RichText(
                     text: TextSpan(
                       children: [

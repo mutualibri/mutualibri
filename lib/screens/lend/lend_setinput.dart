@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mutualibri/screens/menu.dart';
 import 'package:mutualibri/screens/lend/lend_successlend.dart';
 import 'package:mutualibri/models/database_book.dart';
@@ -35,7 +36,7 @@ class _BorrowPageState extends State<BorrowPage> {
       appBar: AppBar(
         backgroundColor: const Color(0xFFfbb825),
         title: const Text(
-          'Lend Book',
+          'LendBook',
           style: TextStyle(color: Colors.black),
         ),
         actions: [
@@ -78,6 +79,35 @@ class _BorrowPageState extends State<BorrowPage> {
                 width: double.infinity,
                 child: Image.network(
                   "${widget.book.fields.image}",
+                  loadingBuilder: (BuildContext context, Widget child,
+                      ImageChunkEvent? loadingProgress) {
+                    if (loadingProgress == null) {
+                      // Image is fully loaded
+                      return child;
+                    } else {
+                      // Image is still loading, you can show a loading indicator or progress bar here
+                      return Center(
+                        child: CircularProgressIndicator(
+                          value: loadingProgress.expectedTotalBytes != null
+                              ? loadingProgress.cumulativeBytesLoaded /
+                                  (loadingProgress.expectedTotalBytes ?? 1)
+                              : null,
+                        ),
+                      );
+                    }
+                  },
+                  errorBuilder: (BuildContext context, Object error,
+                      StackTrace? stackTrace) {
+                    // Image failed to load, you can show an error message or a placeholder image here
+                    return Center(
+                      child: SvgPicture.asset("assets/icons/ErrorImage.svg"),
+                    );
+                  },
+                  frameBuilder: (BuildContext context, Widget child, int? frame,
+                      bool wasSynchronouslyLoaded) {
+                    // After loading, you can perform additional actions if needed
+                    return child;
+                  },
                 ),
               ),
               const SizedBox(height: 10.0),
@@ -99,6 +129,26 @@ class _BorrowPageState extends State<BorrowPage> {
                     ),
                   ],
                 ),
+              ),
+              RichText(
+                text: const TextSpan(
+                  children: [
+                    TextSpan(
+                      text: ' \nNotes! \n',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    TextSpan(
+                      text:'Automatically set for 7 days.',
+                      style: TextStyle(
+                        fontSize: 16.0,
+                      ),
+                    ),
+                  ],
+                ),
+                
               ),
               const SizedBox(height: 20.0),
               Center(
