@@ -15,7 +15,7 @@ class ProductPage extends StatefulWidget {
 class _ProductPageState extends State<ProductPage> {
   Future<List<Book>> fetchProduct() async {
     // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
-    var url = Uri.parse('http://mutualibri-a08-tk.pbp.cs.ui.ac.id/book/json/');
+    var url = Uri.parse('http://127.0.0.1:8000/book/json/');
     var response = await http.get(
       url,
       headers: {"Content-Type": "application/json"},
