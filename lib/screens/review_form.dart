@@ -1,9 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/screens/review_list.dart';
-import 'package:mutualibri/screens/review_page.dart';
 import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
@@ -32,8 +32,8 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
             'Form Add Review',
           ),
         ),
-        backgroundColor: Colors.indigo,
-        foregroundColor: Colors.white,
+        backgroundColor: kPrimaryColor,
+        foregroundColor: kPrimaryLightColor,
       ),
       body: Form(
         key: _formKey,
@@ -45,9 +45,9 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    labelText: "Enter the Title",
+                    labelText: "Title",
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.indigo),
+                      borderSide: BorderSide(color: Colors.black),
                     ),
                   ),
                   onChanged: (String? value) {
@@ -67,9 +67,9 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    labelText: "Enter your Review",
+                    labelText: "Review",
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.indigo),
+                      borderSide: BorderSide(color: Colors.black),
                     ),
                   ),
                   onChanged: (String? value) {
@@ -89,9 +89,9 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    labelText: "Enter your Rating",
+                    labelText: "Rating (0-100)",
                     focusedBorder: UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.indigo),
+                      borderSide: BorderSide(color: Colors.black),
                     ),
                   ),
                   onChanged: (String? value) {
@@ -103,8 +103,9 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                     if (value == null || value.isEmpty) {
                       return "Rating must not be empty!";
                     }
-                    if (int.tryParse(value) == null) {
-                      return "Rating must be a number!";
+                    int? rating = int.tryParse(value);
+                    if (rating == null || rating < 0 || rating > 100) {
+                      return "Rating must be a positive integer between 0 and 100!";
                     }
                     return null;
                   },
@@ -149,7 +150,7 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ReviewPage(),
+                              builder: (context) => ReviewProductPage(),
                             ),
                           );
                         } else {
@@ -165,20 +166,19 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                       _formKey.currentState!.reset();
                     },
                     child: Container(
-                      padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                       decoration: BoxDecoration(
-                        color: Colors.indigo,
+                        color: kPrimaryColor,
                         borderRadius: BorderRadius.circular(8),
                       ),
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(Icons.save, color: Colors.white),
+                          Icon(Icons.save, color: Colors.black),
                           SizedBox(width: 8),
                           Text(
                             "Save",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.black),
                           ),
                         ],
                       ),

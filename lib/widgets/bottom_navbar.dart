@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mutualibri/screens/review_list.dart';
-import 'package:mutualibri/screens/review_page.dart';
 
 class BottomNavigationBarExampleApp extends StatelessWidget {
   const BottomNavigationBarExampleApp({Key? key});
@@ -32,7 +31,7 @@ class _BottomNavigationBarExampleState
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => ReviewPage(),
+          builder: (context) => ReviewProductPage(),
         ),
       );
     } else {
@@ -76,10 +75,10 @@ class _BottomNavigationBarExampleState
                 icon: Icons.comment,
                 text: 'Quotes',
               ),
-              GButton(
-                icon: Icons.person,
-                text: 'Profile',
-              ),
+              // GButton(
+              //   icon: Icons.person,
+              //   text: 'Profile',
+              // ),
             ],
             selectedIndex: _selectedIndex,
             onTabChange: _onItemTapped,
