@@ -48,7 +48,10 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Catalog'),
+        title: const Center(
+          child: Text('Catalog'),
+        ),
+        backgroundColor: Color.fromARGB(255, 251, 207, 103),
       ),
       body: FutureBuilder(
         future: fetchProduct(),

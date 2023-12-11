@@ -1,36 +1,32 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/quotes_model.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
-class QuoteProvider extends ChangeNotifier {
-  List<Quote> quotes = [];
+class BookProvider extends ChangeNotifier {
+  List<Book> books = [];
   late BuildContext context;
 
-  QuoteProvider(BuildContext context) {
+  BookProvider(BuildContext context) {
     this.context = context;
-    fetchQuotes(); // Panggil fetchQuotes saat instance QuoteProvider dibuat
+    fetchBook(); // Panggil fetchBook saat instance BookProvider dibuat
   }
 
-  Future<void> fetchQuotes() async {
+  Future<void> fetchBook() async {
     final request = Provider.of<CookieRequest>(context, listen: false);
-    String url = 'http://127.0.0.1:8000/quote/json/';
+    String url = 'http://127.0.0.1:8000/book/json/';
     var response = await request.get(url);
 
-    List<Quote> listQuotes = [];
+    List<Book> listBooks = [];
     for (var d in json.decode(response.body)) {
       if (d != null) {
-        listQuotes.add(Quote.fromJson(d));
+        listBooks.add(Book.fromJson(d));
       }
     }
-
-    quotes = listQuotes;
+    books = listBooks;
     notifyListeners();
-  }
-
-  List<String> get quoteTitles {
-    return quotes.map((quote) => quote.fields.bookName).toList();
   }
 }

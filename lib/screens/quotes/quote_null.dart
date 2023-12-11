@@ -5,18 +5,7 @@ class QuoteNull extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Text(
-              'Your Daily Dose of Quotes',
-              style: TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-        backgroundColor: Color(0xFFED8728), // Gunakan warna dari color palette
-      ),
+      appBar: AppBar(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

@@ -36,23 +36,27 @@ class Quote {
 
 class Fields {
   int user;
+  String username;
   String bookName;
   String quotes;
 
   Fields({
     required this.user,
+    required this.username,
     required this.bookName,
     required this.quotes,
   });
 
   factory Fields.fromJson(Map<String, dynamic> json) => Fields(
         user: json["user"],
+        username: json["username"],
         bookName: json["book_name"],
         quotes: json["quotes"],
       );
 
   Map<String, dynamic> toJson() => {
         "user": user,
+        "username": username,
         "book_name": bookName,
         "quotes": quotes,
       };
