@@ -33,7 +33,7 @@ class _LendListState extends State<LendListPage> {
 
   Future<List<Book>> fetchBookList() async {
     final request = context.read<CookieRequest>();
-    String url = 'http://127.0.0.1:8000/book/json/';
+    String url = 'http://mutualibri-a08-tk.pbp.cs.ui.ac.id/json/';
 
     var response = await request.get(url);
 
