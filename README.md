@@ -56,11 +56,11 @@ Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen pe
 Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
 1. Melakukan pencarian buku yang tersedia dalam katalog perpustakaan - Samuel Widjaja
 
-    Modul ini dirancang untuk membantu siswa menemukan dan mengakses buku dalam katalog perpustakaan. Siswa dapat menggunakan aplikasi ini untuk mencari buku berdasarkan judul atau kata kunci lainnya. Aplikasi akan memberikan informasi detail tentang buku-buku yang sesuai, termasuk sinopsis, ireview, dan quotes yang dapat ditambahkan oleh user. Siswa juga dapat melihat ketersediaan buku tersebut untuk dipinjam.
+    Modul ini dirancang untuk membantu siswa menemukan dan mengakses buku dalam katalog perpustakaan. Siswa dapat menggunakan aplikasi ini untuk mencari buku berdasarkan judul atau kata kunci lainnya. Aplikasi akan memberikan informasi detail tentang buku-buku yang sesuai, termasuk sinopsis, review, dan quotes yang dapat ditambahkan oleh user. Siswa juga dapat melihat ketersediaan buku tersebut untuk dipinjam.
 
 2. Menyediakan alur peminjaman buku secara online yang memungkinkan siswa untuk meminjam buku yang mereka inginkan - Sabrina Atha Shania
 
-    Modul ini dirancang untuk membantu siswa memilih buku yang ingin mereka pinjam dan menandai buku tersebut untuk peminjaman. Proses peminjaman biasanya melibatkan menentukan periode peminjaman dan jumlah buku yang ingin dipinjam. Setelah buku dipinjam, siswa akan menerima konfirmasi peminjaman. 
+    Modul ini dirancang untuk membantu siswa memilih buku yang ingin mereka pinjam dan menandai buku tersebut untuk peminjaman. Proses peminjaman biasanya melibatkan menentukan periode peminjaman dan jumlah buku yang ingin dipinjam. Setelah buku dipinjam, siswa akan menerima konfirmasi peminjaman. Sebagai tambahan, dalam aplikasi ini juga tersedia fitur buku yang sedang dipinjam dimana siswa dapat menyelesaikan peminjaman tiap buku, memberikan review, dan menyimpan quotes yang terdapat dalam buku tersebut.
 
 3. Menulis ulasan mengenai buku yang telah dibaca - Novrizal Airsyahputra
 
@@ -74,7 +74,6 @@ Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
 
 1. Guest: Dapat mengakses landing page, sign in (login) dan sign up (register)
 2. Peminjam Buku: Memiliki kemampuan untuk mencari buku dari daftar katalog dengan kata kunci, seperti judul. Pengguna juga dapat melihat detail buku seperti judul, sinopsis, rating ulasan, dan dapat juga menulis kutipan. Memiliki kemampuan untuk meminjam buku dari daftar katalog dengan cara mengajukan permintaan peminjaman. Mencari dan menulis kutipan/quotes kesukaan dari buku dan bisa di-post pada halaman “Quotes”. Diberikan kesempatan untuk menuliskan ulasan tentang buku yang telah mereka baca.
-3. Librarian: Mengelola katalog buku. Dapat menambah, mengedit, dan menghapus buku dari katalog
 
 ---
 
