@@ -129,3 +129,12 @@ class EnumValues<T> {
     return reverseMap;
   }
 }
+extension BookSearchExtension on Book {
+  bool matchesQuery(String query) {
+    // Check if any relevant fields match the search query
+    return fields.title.toLowerCase().contains(query.toLowerCase()) ||
+        fields.author.toLowerCase().contains(query.toLowerCase()) ||
+        fields.generes.toLowerCase().contains(query.toLowerCase()) ||
+        fields.description.toLowerCase().contains(query.toLowerCase());
+  }
+}
