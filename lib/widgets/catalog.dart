@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:mutualibri/models/database_book.dart';
+import 'package:mutualibri/screens/quotes/quote_template.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -91,12 +92,21 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
                       Expanded(
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8.0),
-                          child: Image.network(
-                            "${snapshot.data![index].fields.image}",
-                            height: 150.0, // Sesuaikan tinggi gambar
-                            width: double
-                                .infinity, // Lebar gambar mengikuti container
-                            fit: BoxFit.cover, // Atur sesuai kebutuhan
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => QuotePage(),
+                                  ));
+                            },
+                            child: Image.network(
+                              "${snapshot.data![index].fields.image}",
+                              height: 150.0, // Sesuaikan tinggi gambar
+                              width: double
+                                  .infinity, // Lebar gambar mengikuti container
+                              fit: BoxFit.cover, // Atur sesuai kebutuhan
+                            ),
                           ),
                         ),
                       ),
@@ -140,9 +150,16 @@ class _HoverTextState extends State<HoverText> {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) => _updateHover(true),
-      onExit: (_) => _updateHover(false),
+    return GestureDetector(
+      // onEnter: (_) => _updateHover(true),
+      // onExit: (_) => _updateHover(false),
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => QuotePage(),
+            ));
+      },
       child: Text(
         widget.text,
         textAlign: TextAlign.center,

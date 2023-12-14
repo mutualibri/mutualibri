@@ -1,6 +1,6 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/one_book.dart';
@@ -16,7 +16,7 @@ class LendListPage extends StatefulWidget {
 
 class _LendListState extends State<LendListPage> {
   Future<List<OneBook>> fetchProduct() async {
-    final request = context.watch<CookieRequest>();
+    final request = context.read<CookieRequest>();
     String url = 'http://127.0.0.1:8000/json/';
 
     var response = await request.get(url);
@@ -32,7 +32,7 @@ class _LendListState extends State<LendListPage> {
   }
 
   Future<List<Book>> fetchBookList() async {
-    final request = context.watch<CookieRequest>();
+    final request = context.read<CookieRequest>();
     String url = 'http://127.0.0.1:8000/book/json/';
 
     var response = await request.get(url);
@@ -122,13 +122,14 @@ class _LendListState extends State<LendListPage> {
           ),
           Expanded(
             child: FutureBuilder(
-              future: fetchProduct(),
-              builder: (context, AsyncSnapshot snapshot) {
-                if (snapshot.data == null) {
-                  return const Center(child: CircularProgressIndicator());
-                } else {
-                  if (!snapshot.hasData) {
-                    return const Column(
+                future: fetchProduct(),
+                builder: (context, AsyncSnapshot snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Center(child: Text('Error: ${snapshot.error}'));
+                  } else if (!snapshot.hasData || snapshot.data.isEmpty) {
+                    return Column(
                       children: [
                         Text(
                           "Tidak ada data buku.",
@@ -147,17 +148,16 @@ class _LendListState extends State<LendListPage> {
                           (context, AsyncSnapshot<List<Book>> bookSnapshot) {
                         if (bookSnapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return const Center(
-                              child: CircularProgressIndicator());
+                          return Center(child: CircularProgressIndicator());
                         } else if (bookSnapshot.hasError) {
                           return Text('Error: ${bookSnapshot.error}');
                         } else if (!bookSnapshot.hasData ||
                             bookSnapshot.data!.isEmpty) {
-                          return const Text('No books available');
+                          return Text('No books available');
                         } else {
-                          List<Book>? listBook = bookSnapshot.data;
+                          List<Book> listBook = bookSnapshot.data!;
                           return ListView.builder(
-                            itemCount: snapshot.data!.length,
+                            itemCount: snapshot.data.length,
                             itemBuilder: (_, index) => GestureDetector(
                               onTap: () {
                                 // Handle tap on book item
@@ -179,19 +179,73 @@ class _LendListState extends State<LendListPage> {
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
                                         children: [
-                                          // Example of accessing book data using the index
                                           Container(
                                             height: 250,
                                             width: 120,
                                             decoration: BoxDecoration(
                                               image: DecorationImage(
                                                 image: NetworkImage(
-                                                  listBook![snapshot.data![index].fields.book-1].fields.image,
+                                                  listBook[snapshot.data[index]
+                                                              .fields.book -
+                                                          1]
+                                                      .fields
+                                                      .image,
                                                 ),
                                                 fit: BoxFit.cover,
                                               ),
                                               borderRadius:
                                                   BorderRadius.circular(8),
+                                            ),
+                                            child: Image.network(
+                                              listBook[snapshot.data[index]
+                                                          .fields.book -
+                                                      1]
+                                                  .fields
+                                                  .image,
+                                              loadingBuilder:
+                                                  (BuildContext context,
+                                                      Widget child,
+                                                      ImageChunkEvent?
+                                                          loadingProgress) {
+                                                if (loadingProgress == null) {
+                                                  // Image is fully loaded
+                                                  return child;
+                                                } else {
+                                                  // Image is still loading, you can show a loading indicator or progress bar here
+                                                  return Center(
+                                                    child:
+                                                        CircularProgressIndicator(
+                                                      value: loadingProgress
+                                                                  .expectedTotalBytes !=
+                                                              null
+                                                          ? loadingProgress
+                                                                  .cumulativeBytesLoaded /
+                                                              (loadingProgress
+                                                                      .expectedTotalBytes ??
+                                                                  1)
+                                                          : null,
+                                                    ),
+                                                  );
+                                                }
+                                              },
+                                              errorBuilder:
+                                                  (BuildContext context,
+                                                      Object error,
+                                                      StackTrace? stackTrace) {
+                                                // Image failed to load, you can show an error message or a placeholder image here
+                                                return Center(
+                                                  child: SvgPicture.asset(
+                                                      "assets/icons/ErrorImage.svg"),
+                                                );
+                                              },
+                                              frameBuilder: (BuildContext
+                                                      context,
+                                                  Widget child,
+                                                  int? frame,
+                                                  bool wasSynchronouslyLoaded) {
+                                                // After loading, you can perform additional actions if needed
+                                                return child;
+                                              },
                                             ),
                                           ),
                                           SizedBox(width: 16),
@@ -205,7 +259,11 @@ class _LendListState extends State<LendListPage> {
                                                       const EdgeInsets.only(
                                                           bottom: 8.0),
                                                   child: Text(
-                                                    listBook[snapshot.data![index].fields.book-1]
+                                                    listBook[snapshot
+                                                                .data![index]
+                                                                .fields
+                                                                .book -
+                                                            1]
                                                         .fields
                                                         .title,
                                                     style: TextStyle(
@@ -216,7 +274,11 @@ class _LendListState extends State<LendListPage> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  listBook[snapshot.data![index].fields.book-1].fields.author,
+                                                  listBook[snapshot.data![index]
+                                                              .fields.book -
+                                                          1]
+                                                      .fields
+                                                      .author,
                                                   style: const TextStyle(
                                                       fontSize: 16.0),
                                                 ),
@@ -232,15 +294,26 @@ class _LendListState extends State<LendListPage> {
                                                       fontSize: 16.0),
                                                 ),
                                                 SizedBox(height: 10),
+                                                Text(
+                                                  isEndDateOverdue(snapshot
+                                                          .data![index]
+                                                          .fields
+                                                          .endDate)
+                                                      ? 'End Date is overdue!'
+                                                      : '',
+                                                  style: TextStyle(
+                                                    fontSize: 16.0,
+                                                    color: isEndDateOverdue(
+                                                            snapshot
+                                                                .data![index]
+                                                                .fields
+                                                                .endDate)
+                                                        ? Colors.red
+                                                        : Colors.green,
+                                                  ),
+                                                ),
                                                 InkWell(
-                                                  onTap: () {
-                                                    // Navigator.push(
-                                                    //   context,
-                                                    //   MaterialPageRoute(
-                                                    //     builder: (context) => SecondPage(),
-                                                    //   ),
-                                                    // );
-                                                  },
+                                                  onTap: () {},
                                                   splashFactory:
                                                       InkSplash.splashFactory,
                                                   child: Text(
@@ -255,14 +328,7 @@ class _LendListState extends State<LendListPage> {
                                                 ),
                                                 SizedBox(height: 10),
                                                 InkWell(
-                                                  onTap: () {
-                                                    // Navigator.push(
-                                                    //   context,
-                                                    //   MaterialPageRoute(
-                                                    //     builder: (context) => SecondPage(),
-                                                    //   ),
-                                                    // );
-                                                  },
+                                                  onTap: () {},
                                                   splashFactory:
                                                       InkSplash.splashFactory,
                                                   child: Text(
@@ -298,12 +364,16 @@ class _LendListState extends State<LendListPage> {
                       },
                     );
                   }
-                }
-              },
-            ),
+                }),
           ),
         ],
       ),
     );
   }
+}
+
+// Define a function to check if the end date is overdue
+bool isEndDateOverdue(DateTime endDate) {
+  DateTime currentDate = DateTime.now();
+  return currentDate.isAfter(endDate);
 }

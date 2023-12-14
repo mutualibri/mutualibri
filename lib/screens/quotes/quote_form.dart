@@ -1,12 +1,14 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/screens/quotes/quote_template.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
 class QuoteForm extends StatefulWidget {
-  const QuoteForm({super.key});
+  // final List<Book> book;
+  const QuoteForm({Key? key}) : super(key: key);
 
   @override
   State<QuoteForm> createState() => _QuoteFormState();
@@ -20,6 +22,7 @@ class _QuoteFormState extends State<QuoteForm> {
   @override
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
+    // print(widget.book.length);
     return Scaffold(
       appBar: AppBar(
         title: const Center(
@@ -38,6 +41,34 @@ class _QuoteFormState extends State<QuoteForm> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Padding(
+                //   padding: const EdgeInsets.all(8.0),
+                //   child: DropdownButtonFormField<String>(
+                //     value: _bookName,
+                //     icon: const Icon(Icons.arrow_downward),
+                //     iconSize: 24,
+                //     elevation: 16,
+                //     style: const TextStyle(color: Colors.deepPurple),
+                //     onChanged: (String? newValue) {
+                //       setState(() {
+                //         _bookName = newValue!;
+                //       });
+                //     },
+                //     items: widget.book.map((Book book) {
+                //       return DropdownMenuItem<String>(
+                //         value: book.fields
+                //             .title, // Assuming Book has a 'title' property
+                //         child: Text(book.fields.title),
+                //       );
+                //     }).toList(),
+                //     decoration: InputDecoration(
+                //       labelText: 'Judul Buku',
+                //       border: OutlineInputBorder(
+                //         borderRadius: BorderRadius.circular(5.0),
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(

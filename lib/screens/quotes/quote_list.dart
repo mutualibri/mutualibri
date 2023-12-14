@@ -6,14 +6,9 @@ import 'package:mutualibri/models/quotes_model.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
-class BookProvider extends ChangeNotifier {
+class BookProvider {
   List<Book> books = [];
   late BuildContext context;
-
-  BookProvider(BuildContext context) {
-    this.context = context;
-    fetchBook(); // Panggil fetchBook saat instance BookProvider dibuat
-  }
 
   Future<void> fetchBook() async {
     final request = Provider.of<CookieRequest>(context, listen: false);
@@ -27,6 +22,5 @@ class BookProvider extends ChangeNotifier {
       }
     }
     books = listBooks;
-    notifyListeners();
   }
 }

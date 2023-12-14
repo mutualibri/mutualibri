@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:mutualibri/models/database_book.dart';
 import 'dart:convert';
 import 'package:mutualibri/models/quotes_model.dart';
 import 'package:mutualibri/screens/quotes/quote_form.dart';
@@ -15,6 +16,8 @@ class QuotePage extends StatefulWidget {
 }
 
 class _QuotePageState extends State<QuotePage> {
+  // List<Book> books = [];
+
   Future<List<Quote>> fetchQuote() async {
     final request = context.watch<CookieRequest>();
     String url = 'http://127.0.0.1:8000/quote/json/';
@@ -29,6 +32,21 @@ class _QuotePageState extends State<QuotePage> {
     }
     return list_Quote;
   }
+
+  // Future<List<Book>> fetchBook() async {
+  //   final request = context.watch<CookieRequest>();
+  //   String url = 'http://127.0.0.1:8000/book/json/';
+  //   var response = await request.get(url);
+
+  //   List<Book> listBooks = [];
+  //   for (var d in json.decode(response.body)) {
+  //     if (d != null) {
+  //       listBooks.add(Book.fromJson(d));
+  //     }
+  //   }
+  //   books = listBooks;
+  //   return listBooks;
+  // }
 
   @override
   Widget build(BuildContext context) {
