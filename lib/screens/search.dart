@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/screens/login.dart'; 
 import 'package:mutualibri/screens/register.dart'; 
 
@@ -7,14 +8,14 @@ class SearchBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(16.0),
-      color: Colors.blue, // Sesuaikan dengan warna latar belakang yang diinginkan
+      color: kPrimaryColor, // Sesuaikan dengan warna latar belakang yang diinginkan
       child: Row(
         children: [
           Expanded(
             child: TextField(
               decoration: InputDecoration(
                 hintText: 'Cari buku...',
-                hintStyle: TextStyle(color: Colors.white),
+                hintStyle: TextStyle(color: Colors.black),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10.0),
                 ),

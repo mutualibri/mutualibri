@@ -36,7 +36,7 @@ class _BorrowPageState extends State<BorrowPage> {
       appBar: AppBar(
         backgroundColor: const Color(0xFFfbb825),
         title: const Text(
-          'LendBook',
+          'Your new lendbook',
           style: TextStyle(color: Colors.black),
         ),
         actions: [
@@ -183,7 +183,7 @@ class _BorrowPageState extends State<BorrowPage> {
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         final response = await request.postJson(
-                          "http://127.0.0.1:8000/create-lend-flutter/",
+                          "https://mutualibri-a08-tk.pbp.cs.ui.ac.id/create-lend-flutter/",
                           jsonEncode(<String, String>{
                             'book': widget.book.fields.number.toString(),
                             'startDate': startDate.toString(),

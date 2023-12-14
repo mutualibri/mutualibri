@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
                   borderSide: BorderSide.none,
                 ),
               )),
-          home: isviewed != 0 ? OnBoard() : LoginPage(),
+          home: isviewed != 0 ? OnBoard() : WelcomeScreen(),
         ));
   }
 }

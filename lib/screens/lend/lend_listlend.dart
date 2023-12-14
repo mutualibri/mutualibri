@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/one_book.dart';
+import 'package:mutualibri/models/quotes_model.dart';
+import 'package:mutualibri/screens/quotes/quote_form.dart';
 import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
@@ -18,34 +20,34 @@ class LendListPage extends StatefulWidget {
 class _LendListState extends State<LendListPage> {
   Future<List<OneBook>> fetchProduct() async {
     final request = context.read<CookieRequest>();
-    String url = 'http://127.0.0.1:8000/json/';
+    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/json/';
 
     var response = await request.get(url);
 
-    List<OneBook> list_product = [];
+    List<OneBook> listProduct = [];
     for (var d in response) {
       if (d != null) {
         OneBook onebook = OneBook.fromJson(d);
-        list_product.add(onebook);
+        listProduct.add(onebook);
       }
     }
-    return list_product;
+    return listProduct;
   }
 
   Future<List<Book>> fetchBookList() async {
     final request = context.read<CookieRequest>();
-    String url = 'http://127.0.0.1:8000/book/json/';
+    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/book/json/';
 
     var response = await request.get(url);
 
-    List<Book> list_book = [];
+    List<Book> listBook = [];
     for (var d in response) {
       if (d != null) {
         Book book = Book.fromJson(d);
-        list_book.add(book);
+        listBook.add(book);
       }
     }
-    return list_book;
+    return listBook;
   }
 
   Future<void> deleteData(OneBook data) async {
@@ -75,7 +77,7 @@ class _LendListState extends State<LendListPage> {
 
     if (confirmDelete == true) {
       final cookieRequest = context.read<CookieRequest>();
-      String url = 'http://127.0.0.1:8000/delete-lend-flutter/';
+      String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/delete-lend-flutter/';
 
       try {
         var response = await cookieRequest.post(url, jsonEncode(data));
@@ -94,7 +96,6 @@ class _LendListState extends State<LendListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: const BottomNavigationBarExampleApp(),
       body: Column(
         children: [
           Container(
@@ -330,7 +331,16 @@ class _LendListState extends State<LendListPage> {
                                                 ),
                                                 SizedBox(height: 10),
                                                 InkWell(
-                                                  onTap: () {},
+                                                  onTap: () {
+                                                    // Navigate to QuoteForm
+                                                    Navigator.pushReplacement(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            const QuoteForm(),
+                                                      ),
+                                                    );
+                                                  },
                                                   splashFactory:
                                                       InkSplash.splashFactory,
                                                   child: Text(

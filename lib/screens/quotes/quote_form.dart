@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/screens/quotes/quote_template.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -25,13 +26,26 @@ class _QuoteFormState extends State<QuoteForm> {
     // print(widget.book.length);
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text(
-            'Quote',
-          ),
+        backgroundColor: const Color(0xFFfbb825),
+        title: const Text(
+          'Your new qoutesbook',
+          style: TextStyle(color: Colors.black),
         ),
-        backgroundColor: Color.fromARGB(255, 251, 207, 103),
-        foregroundColor: Colors.white,
+        actions: [
+          IconButton(
+            icon: Image.asset(
+              'assets/images/Logo.png',
+              height: 50,
+              width: 50,
+            ),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => MyHomePage()),
+              );
+            },
+          ),
+        ],
       ),
       // TODO: Tambahkan drawer yang sudah dibuat di sini
       body: Center(
@@ -128,7 +142,7 @@ class _QuoteFormState extends State<QuoteForm> {
                         if (_formKey.currentState!.validate()) {
                           // Kirim ke Django dan tunggu respons
                           final response = await request.postJson(
-                              "http://127.0.0.1:8000/quote/create-flutter/",
+                              "https://mutualibri-a08-tk.pbp.cs.ui.ac.id/quote/create-flutter/",
                               jsonEncode(<String, String>{
                                 'book_name': _bookName,
                                 'quotes': _quotes,

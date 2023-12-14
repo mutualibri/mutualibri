@@ -24,7 +24,7 @@ class _SuccessPageState extends State<SuccessPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 100.0),
+            const SizedBox(height: 150.0),
             Center(
               child: Text(
                 widget.book.fields.title,

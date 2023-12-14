@@ -1,9 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:mutualibri/components/already_account.dart';
 import 'package:mutualibri/constants.dart';
+import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/screens/list_product.dart';
 import 'package:flutter/material.dart';
 import 'package:mutualibri/screens/login/login_screen_top_image.dart';
+import 'package:mutualibri/screens/register.dart';
+import 'package:mutualibri/widgets/catalog.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -43,9 +46,6 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
       body: Container(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -87,7 +87,7 @@ class _LoginPageState extends State<LoginPage> {
                   String uname = response['username'];
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => ProductPage()),
+                    MaterialPageRoute(builder: (context) => CatalogTemplate()),
                   );
                   ScaffoldMessenger.of(context)
                     ..hideCurrentSnackBar()
@@ -116,14 +116,14 @@ class _LoginPageState extends State<LoginPage> {
              const SizedBox(height: defaultPadding),
             AlreadyHaveAnAccountCheck(
               press: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) {
-                //       return const SignUpScreen();
-                //     },
-                //   ),
-                // );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return RegisterPage();
+                    },
+                  ),
+                );
               },
             )
           ],
