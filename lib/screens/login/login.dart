@@ -1,26 +1,20 @@
+import 'package:mutualibri/components/already_account.dart';
+import 'package:mutualibri/constants.dart';
+import 'package:mutualibri/screens/login/login_screen_top_image.dart';
+import 'package:mutualibri/screens/menu.dart';
+
 import 'package:flutter/material.dart';
-import 'package:mutualibri/widgets/menu.dart';
+import 'package:mutualibri/screens/quotes/quote_template.dart';
+import 'package:mutualibri/widgets/catalog.dart';
+import 'package:mutualibri/widgets/search.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:mutualibri/screens/register.dart';
+
+import 'package:mutualibri/responsive.dart';
+import 'package:mutualibri/components/background.dart';
 
 void main() {
-  runApp(const LoginApp());
-}
-
-class LoginApp extends StatelessWidget {
-  const LoginApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Login',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const LoginPage(),
-    );
-  }
+  runApp(const LoginPage());
 }
 
 class LoginPage extends StatefulWidget {
@@ -38,14 +32,12 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final request = context.watch<CookieRequest>();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-      ),
       body: Container(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            LoginScreenTopImage(),
             TextField(
               controller: _usernameController,
               decoration: const InputDecoration(
@@ -66,23 +58,23 @@ class _LoginPageState extends State<LoginPage> {
                 String username = _usernameController.text;
                 String password = _passwordController.text;
 
-                final response = await request.login(
-                  "http://127.0.0.1:8000/auth/login/",
-                  {'username': username, 'password': password},
-                );
+                final response =
+                    await request.login("http://127.0.0.1:8000/auth/login/", {
+                  'username': username,
+                  'password': password,
+                });
 
                 if (request.loggedIn) {
                   String message = response['message'];
                   String uname = response['username'];
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => MyHomePage()),
+                    MaterialPageRoute(builder: (context) => CatalogTemplate()),
                   );
                   ScaffoldMessenger.of(context)
                     ..hideCurrentSnackBar()
-                    ..showSnackBar(
-                      SnackBar(content: Text("$message Selamat datang, $uname.")),
-                    );
+                    ..showSnackBar(SnackBar(
+                        content: Text("$message Selamat datang, $uname.")));
                 } else {
                   showDialog(
                     context: context,
@@ -101,24 +93,23 @@ class _LoginPageState extends State<LoginPage> {
                   );
                 }
               },
-              child: const Text('Login'),
-            ),
-            const SizedBox(height: 16.0),
-            GestureDetector(
-              onTap: () {
-                // Navigate to the registration page
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => RegisterPage()),
-                );
-              },
-              child: Text(
-                'Belum punya akun? Daftar di sini.',
-                style: TextStyle(
-                  color: Colors.blue,
-                  decoration: TextDecoration.underline,
-                ),
+              child: const Text(
+                'Login',
+                style: TextStyle(color: Colors.black),
               ),
+            ),
+            const SizedBox(height: defaultPadding),
+            AlreadyHaveAnAccountCheck(
+              press: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) {
+                //       return const SignUpScreen();
+                //     },
+                //   ),
+                // );
+              },
             ),
           ],
         ),
