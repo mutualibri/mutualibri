@@ -48,6 +48,7 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
           ),
         ],
       ),
+      drawer: DrawerClass(),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -83,7 +84,10 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                     labelText: "Review",
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
-                    ),
+                    ), 
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
                   ),
                   onChanged: (String? value) {
                     setState(() {

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mutualibri/constants.dart';
+import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/quotes_model.dart';
 import 'dart:convert';
@@ -53,33 +54,30 @@ class _QuotePageState extends State<QuotePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBarExample(),
-        body: Column(children: [
-          Container(
-            color: kPrimaryColor,
-            padding: EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Quotes',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Image.asset(
-                  'assets/images/Logo.png',
-                  height: 30.0,
-                  width: 30.0,
-                ),
-              ],
-            ),
+        appBar: AppBar(
+          backgroundColor: const Color(0xFFfbb825),
+          title: const Text(
+            'Quotes of Books',
+            style: TextStyle(color: Colors.black),
           ),
+          actions: [
+            IconButton(
+              icon: Image.asset(
+                'assets/images/Logo.png',
+                height: 50,
+                width: 50,
+              ),
+              onPressed: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => MyHomePage()),
+                );
+              },
+            ),
+          ],
+        ),
+        drawer: DrawerClass(),
+        body: Column(children: [
           Container(
             margin: const EdgeInsets.only(bottom: 16),
             child: Align(

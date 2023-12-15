@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mutualibri/constants.dart';
+import 'package:mutualibri/screens/register/register.dart';
 
 class AlreadyHaveAnAccountCheck extends StatelessWidget {
   final bool login;
@@ -21,7 +22,14 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            Navigator.pushNamed(context, '/register');
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return RegisterPage();
+                },
+              ),
+            );
           },
           child: Text(
             login ? "Sign Up" : "Sign In",

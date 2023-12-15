@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/models/database_book.dart';
+import 'package:mutualibri/screens/lend/lend_detailbook.dart';
 import 'package:mutualibri/screens/login/login.dart';
 import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -69,50 +70,35 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // bottomNavigationBar: BottomNavigationBarExample(),
-      body: Column(
-        children: [
-          Container(
-            color: kPrimaryColor,
-            padding: EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'Our Collections',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Image.asset(
-                  'assets/images/Logo.png',
-                  height: 30.0,
-                  width: 30.0,
-                ),
-              ],
-            ),
-          ),
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFfbb825),
+        title: const Text('Catalog', style: TextStyle(color: Colors.black),),
+        actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: _searchController,
-              onChanged: _onSearchChanged,
-              decoration: InputDecoration(
-                hintText: 'Search...',
-                prefixIcon: Icon(Icons.search),
+            child: SizedBox(
+              width: 300,
+              child: TextField(
+                controller: _searchController,
+                onChanged: _onSearchChanged,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  filled: true,
+                  fillColor: Color.fromARGB(255, 255, 229, 173),
+                ),
               ),
             ),
           ),
-          Expanded(
-            child: _buildBody(),
+          IconButton(
+            icon: Icon(Icons.logout),
+            onPressed: () {
+              _logout(context);
+            },
           ),
         ],
       ),
+      body: _buildBody(),
+      drawer: DrawerClass(),
     );
   }
 
@@ -148,50 +134,68 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(8.0),
-                  child: Image.network(
-                    "${_filteredBooks[index].fields.image}",
-                    height: 150.0, // Adjust image height as needed
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                    loadingBuilder: (BuildContext context, Widget child,
-                        ImageChunkEvent? loadingProgress) {
-                      if (loadingProgress == null) {
-                        // Image is fully loaded
-                        return child;
-                      } else {
-                        // Image is still loading, you can show a loading indicator or progress bar here
-                        return Center(
-                          child: CircularProgressIndicator(
-                            value: loadingProgress.expectedTotalBytes != null
-                                ? loadingProgress.cumulativeBytesLoaded /
-                                    (loadingProgress.expectedTotalBytes ?? 1)
-                                : null,
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  BookPage(book: _filteredBooks[index]),
+                            ),
+                          );
+                        },
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.network(
+                            "${_filteredBooks[index].fields.image}",
+                            height: 150.0, // Adjust image height as needed
+                            width: double.infinity,
+                            fit: BoxFit.cover,
+                            loadingBuilder: (BuildContext context, Widget child,
+                                ImageChunkEvent? loadingProgress) {
+                              if (loadingProgress == null) {
+                                // Image is fully loaded
+                                return child;
+                              } else {
+                                // Image is still loading, you can show a loading indicator or progress bar here
+                                return Center(
+                                  child: CircularProgressIndicator(
+                                    value: loadingProgress.expectedTotalBytes !=
+                                            null
+                                        ? loadingProgress
+                                                .cumulativeBytesLoaded /
+                                            (loadingProgress
+                                                    .expectedTotalBytes ??
+                                                1)
+                                        : null,
+                                  ),
+                                );
+                              }
+                            },
+                            errorBuilder: (BuildContext context, Object error,
+                                StackTrace? stackTrace) {
+                              // Image failed to load, you can show an error message or a placeholder image here
+                              return Center(
+                                child: SvgPicture.asset(
+                                    "assets/icons/ErrorImage.svg"),
+                              );
+                            },
+                            frameBuilder: (BuildContext context, Widget child,
+                                int? frame, bool wasSynchronouslyLoaded) {
+                              // After loading, you can perform additional actions if needed
+                              return child;
+                            },
                           ),
-                        );
-                      }
-                    },
-                    errorBuilder: (BuildContext context, Object error,
-                        StackTrace? stackTrace) {
-                      // Image failed to load, you can show an error message or a placeholder image here
-                      return Center(
-                        child: SvgPicture.asset("assets/icons/ErrorImage.svg"),
-                      );
-                    },
-                    frameBuilder: (BuildContext context, Widget child,
-                        int? frame, bool wasSynchronouslyLoaded) {
-                      // After loading, you can perform additional actions if needed
-                      return child;
-                    },
-                  ),
-                ),
-              ),
+                        ),
+                      ))),
               const SizedBox(height: 10),
               HoverText(
                 text: _limitSubstring("${_filteredBooks[index].fields.title}"),
                 defaultColor: Colors.black,
                 hoverColor: Colors.blue,
+                book: _filteredBooks[index], // Pass book data to HoverText
               ),
             ],
           ),
@@ -230,11 +234,13 @@ class HoverText extends StatefulWidget {
   final String text;
   final Color defaultColor;
   final Color hoverColor;
+  final Book book; // Added parameter for book data
 
   const HoverText({
     required this.text,
     required this.defaultColor,
     required this.hoverColor,
+    required this.book,
     Key? key,
   }) : super(key: key);
 
@@ -250,11 +256,21 @@ class _HoverTextState extends State<HoverText> {
     return MouseRegion(
       onEnter: (_) => _updateHover(true),
       onExit: (_) => _updateHover(false),
-      child: Text(
-        widget.text,
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: isHovered ? widget.hoverColor : widget.defaultColor,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => BookPage(book: widget.book),
+            ),
+          );
+        },
+        child: Text(
+          widget.text,
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            color: isHovered ? widget.hoverColor : widget.defaultColor,
+          ),
         ),
       ),
     );
@@ -267,10 +283,4 @@ class _HoverTextState extends State<HoverText> {
       });
     }
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: CatalogTemplate(),
-  ));
 }

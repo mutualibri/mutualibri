@@ -1,116 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:mutualibri/constants.dart';
-import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/screens/lend/lend_listlend.dart';
+import 'package:mutualibri/screens/quotes/quote_template.dart';
 import 'package:mutualibri/screens/review/review_list.dart';
 import 'package:mutualibri/widgets/catalog.dart';
 
-class BottomNavigationBarExample extends StatefulWidget {
-  const BottomNavigationBarExample({Key? key});
-
-  @override
-  State<BottomNavigationBarExample> createState() =>
-      _BottomNavigationBarExampleState();
-}
-
-class _BottomNavigationBarExampleState
-    extends State<BottomNavigationBarExample> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    if (index == 2) {
-      // If Review is tapped, navigate to the ReviewPage
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ReviewProductPage(),
-        ),
-      );
-    } else if (index == 1) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => LendListPage(),
-        ),
-      );
-    } else if (index == 0) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => CatalogTemplate(),
-        ),
-      );
-    } else {
-      setState(() {
-        _selectedIndex = index;
-      });
-    }
-  }
+class DrawerClass extends StatelessWidget {
+  const DrawerClass({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: const Color(0xFFfbb825),
-        title: const Text(
-          'Our Collections',
-          style: TextStyle(color: Colors.black),
-        ),
-        actions: [
-          IconButton(
-            icon: Image.asset(
-              'assets/images/Logo.png',
-              height: 50,
-              width: 50,
-            ),
-            onPressed: () {
+    return Drawer(
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 30.0,
+          ),
+          // Adding clickable menu
+          ListTile(
+            leading: Icon(Icons.collections),
+            title: const Text('Our Collections'),
+            onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => CatalogTemplate()),
+                MaterialPageRoute(
+                  builder: (context) => const CatalogTemplate(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.list),
+            title: const Text('My LendList'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const LendListPage(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.rate_review),
+            title: const Text('Reviews of Books'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ReviewProductPage(),
+                ),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.format_quote),
+            title: const Text('Quotes of Books'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const QuotePage(),
+                ),
               );
             },
           ),
         ],
-      ),
-      bottomNavigationBar: Container(
-        color: kPrimaryColor,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
-          child: GNav(
-            backgroundColor: kPrimaryColor,
-            color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: Colors.grey.shade800,
-            padding: EdgeInsets.all(16),
-            gap: 8, // Gap antara icon dan text
-            iconSize: 20,
-            tabs: const [
-              GButton(
-                icon: Icons.home,
-                text: 'Home',
-              ),
-              GButton(
-                icon: Icons.book,
-                text: 'Checkout',
-              ),
-              GButton(
-                icon: Icons.reviews,
-                text: 'Review',
-              ),
-              GButton(
-                icon: Icons.comment,
-                text: 'Quotes',
-              ),
-              // GButton(
-              //   icon: Icons.person,
-              //   text: 'Profile',
-              // ),
-            ],
-            selectedIndex: _selectedIndex,
-            onTabChange: _onItemTapped,
-          ),
-        ),
       ),
     );
   }

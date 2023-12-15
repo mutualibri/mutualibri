@@ -1,9 +1,7 @@
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:mutualibri/constants.dart';
-import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/models/review.dart';
-import 'package:mutualibri/screens/review/review_form.dart';
 import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
@@ -20,7 +18,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
 
   Future<List<Review>> fetchReview() async {
     final request = context.watch<CookieRequest>();
-    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/review/json/';
+    String url = 'http://127.0.0.1:8000/review/json/';
 
     var response = await request.get(url);
 
@@ -43,28 +41,11 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFfbb825),
-        title: const Text(
-          'Review Page',
-          style: TextStyle(color: Colors.black),
-        ),
-        actions: [
-          IconButton(
-            icon: Image.asset(
-              'assets/images/Logo.png',
-              height: 50,
-              width: 50,
-            ),
-            onPressed: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
-              );
-            },
-          ),
-        ],
+        title: const Text('Review Page', style: TextStyle(color: Colors.black),),
+        backgroundColor: kPrimaryColor,
+        foregroundColor: kPrimaryLightColor,
       ),
-      bottomNavigationBar: BottomNavigationBarExample(),
+      drawer: DrawerClass(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -72,46 +53,40 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
             Container(
               padding: const EdgeInsets.all(20.0),
               child: Text(
-                "REVIEW PAGE",
+                "You can add your own book review here!",
                 style: TextStyle(
-                  fontSize: 24.0,
+                  fontSize: 20.0,
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(bottom: 16),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ReviewFormPage(),
-                    ),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: kPrimaryColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+            margin: const EdgeInsets.only(bottom: 16),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStateProperty.all(
+                        Color.fromARGB(255, 241, 188, 74)),
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 16,
-                    horizontal: 24,
-                  ),
-                  child: Text(
-                    'Add Review',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+                  onPressed: () async {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ReviewProductPage(),
+                      ),
+                    );
+                  },
+                  child: const Text(
+                    "Add review here!",
+                    style: TextStyle(color: Colors.white),
                   ),
                 ),
               ),
             ),
+          ),
             // DropdownButton<String>(
             //   value: _sortBy,
             //   onChanged: (String? newValue) {
@@ -137,7 +112,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                     return const Column(
                       children: [
                         Text(
-                          "There is no review yet.",
+                          "There is no review yet...",
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 20,

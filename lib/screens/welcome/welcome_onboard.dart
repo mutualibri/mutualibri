@@ -18,25 +18,25 @@ class _OnBoardState extends State<OnBoard> {
   List<OnboardModel> screens = <OnboardModel>[
     OnboardModel(
       img: 'assets/images/Logo.png',
-      text: "Belajar Dengan Metode Learning by Doing",
+      text: "Welcome to Mutualibri!",
       desc:
-          "Sebuah metode belajar yang terbuktiampuh dalam meningkatkan produktifitas belajar, Learning by Doing",
+          "Immerse yourself in the magic of literature as you explore our extensive collection of books available for borrowing",
       bg: Colors.white,
       button: Color(0xFFFBB825),
     ),
     OnboardModel(
       img: 'assets/images/Logo.png',
-      text: "Dapatkan Kemudahan Akses Kapanpun dan Dimanapun",
+      text: "Empower Your Expertise",
       desc:
-          "Tidak peduli dimanapun kamu, semua kursus yang telah kamu ikuti bias kamu akses sepenuhnya",
+          "Dive Deeper with Collaborative Skill Building!",
       bg: Color(0xFFFBB825),
       button: Colors.white,
     ),
     OnboardModel(
       img: 'assets/images/Logo.png',
-      text: "Gunakan Fitur Kolaborasi Untuk Pengalaman Lebih",
+      text: "One last click, and you're ready to go!",
       desc:
-          "Tersedia fitur Kolaborasi dengan tujuan untuk mengasah skill lebih dalam karena bias belajar bersama",
+          "Finally, our warmest welcome to you and enjoy your experience at mutualibri!",
       bg: Colors.white,
       button: Color(0xFFFBB825),
     ),

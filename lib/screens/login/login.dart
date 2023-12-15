@@ -4,6 +4,7 @@ import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:mutualibri/screens/login/login_screen_top_image.dart';
+import 'package:mutualibri/screens/register/register.dart';
 import 'package:mutualibri/widgets/catalog.dart';
 import 'package:mutualibri/widgets/search.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -112,17 +113,17 @@ class _LoginPageState extends State<LoginPage> {
               },
               child: const Text('Login'),
             ),
-             const SizedBox(height: defaultPadding),
+            const SizedBox(height: defaultPadding),
             AlreadyHaveAnAccountCheck(
               press: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) {
-                //       return RegisterPage();
-                //     },
-                //   ),
-                // );
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return RegisterPage();
+                    },
+                  ),
+                );
               },
             )
           ],

@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mutualibri/screens/quotes/quote_form.dart';
 import 'package:mutualibri/screens/quotes/quote_template.dart';
+import 'package:mutualibri/widgets/bottom_navbar.dart';
 
 class QuoteNull extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      drawer: DrawerClass(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

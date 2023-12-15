@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mutualibri/constants.dart';
+import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/one_book.dart';
 import 'package:mutualibri/models/quotes_model.dart';
@@ -97,36 +98,30 @@ class _LendListState extends State<LendListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavigationBarExample(),
-      body: Column(
-        children: [
-          Container(
-            color: kPrimaryColor,
-            padding: EdgeInsets.all(16.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    'My Lend List',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 18.0,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Image.asset(
-                  'assets/images/Logo.png',
-                  height: 30.0,
-                  width: 30.0,
-                ),
-              ],
+      appBar: AppBar(
+        backgroundColor: const Color(0xFFfbb825),
+        title: const Text(
+          'My LendList',
+          style: TextStyle(color: Colors.black),
+        ),
+        actions: [
+          IconButton(
+            icon: Image.asset(
+              'assets/images/Logo.png',
+              height: 50,
+              width: 50,
             ),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => MyHomePage()),
+              );
+            },
           ),
-          Expanded(
-            child: FutureBuilder(
+        ],
+      ),
+      drawer: DrawerClass(),
+      body: FutureBuilder(
                 future: fetchProduct(),
                 builder: (context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
@@ -388,10 +383,7 @@ class _LendListState extends State<LendListPage> {
                     );
                   }
                 }),
-          ),
-        ],
-      ),
-    );
+      );
   }
 }
 

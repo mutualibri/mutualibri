@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/screens/quotes/quote_template.dart';
+import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -47,7 +48,7 @@ class _QuoteFormState extends State<QuoteForm> {
           ),
         ],
       ),
-      // TODO: Tambahkan drawer yang sudah dibuat di sini
+      drawer: DrawerClass(),
       body: Center(
         child: Form(
           key: _formKey,

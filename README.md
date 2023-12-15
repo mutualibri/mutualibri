@@ -1,8 +1,10 @@
 # mutualibri
 
 ![Jekyll site CI](https://github.com/gede-books/gede-books/workflows/Jekyll%20site%20CI/badge.svg)
-
+[![Pre-Release](https://github.com/mutualibri/mutualibri/actions/workflows/pre-release.yml/badge.svg)](https://github.com/mutualibri/mutualibri/actions/workflows/pre-release.yml)
+[![Release](https://github.com/mutualibri/mutualibri/actions/workflows/release.yml/badge.svg)](https://github.com/mutualibri/mutualibri/actions/workflows/release.yml)
 [![Build status](https://build.appcenter.ms/v0.1/apps/d98657ab-c206-4a95-a945-454f014278fd/branches/main/badge)](https://appcenter.ms)
+[![Develop](https://github.com/mutualibri/mutualibri/actions/workflows/develop.yml/badge.svg)](https://github.com/mutualibri/mutualibri/actions/workflows/develop.yml)
 
 ### 👩🏻🧔🏻‍♂️ Developer Team :
 * 2206083691 - Fari Hafizh Ramadhan
@@ -47,7 +49,11 @@ Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen pe
 
 ### 📱 Gambaran besar aplikasi
 
+<<<<<<< HEAD
+‘mututalibri’ adalah sebuah aplikasi seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Situs ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Situs ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
+=======
 **📲 Deskripsi Aplikasi mobile**
+>>>>>>> 1c847cdd966d6eeeef0b4dd5ef1cf2e41befcef8
 
 ‘mututalibri’ adalah sebuah aplikasi seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Aplikasi ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Aplikasi ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
 
@@ -56,11 +62,11 @@ Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen pe
 Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
 1. Melakukan pencarian buku yang tersedia dalam katalog perpustakaan - Samuel Widjaja
 
-    Modul ini dirancang untuk membantu siswa menemukan dan mengakses buku dalam katalog perpustakaan. Siswa dapat menggunakan aplikasi ini untuk mencari buku berdasarkan judul atau kata kunci lainnya. Aplikasi akan memberikan informasi detail tentang buku-buku yang sesuai, termasuk sinopsis, ireview, dan quotes yang dapat ditambahkan oleh user. Siswa juga dapat melihat ketersediaan buku tersebut untuk dipinjam.
+    Modul ini dirancang untuk membantu siswa menemukan dan mengakses buku dalam katalog perpustakaan. Siswa dapat menggunakan aplikasi ini untuk mencari buku berdasarkan judul atau kata kunci lainnya. Aplikasi akan memberikan informasi detail tentang buku-buku yang sesuai, termasuk sinopsis, review, dan quotes yang dapat ditambahkan oleh user. Siswa juga dapat melihat ketersediaan buku tersebut untuk dipinjam.
 
 2. Menyediakan alur peminjaman buku secara online yang memungkinkan siswa untuk meminjam buku yang mereka inginkan - Sabrina Atha Shania
 
-    Modul ini dirancang untuk membantu siswa memilih buku yang ingin mereka pinjam dan menandai buku tersebut untuk peminjaman. Proses peminjaman biasanya melibatkan menentukan periode peminjaman dan jumlah buku yang ingin dipinjam. Setelah buku dipinjam, siswa akan menerima konfirmasi peminjaman. 
+    Modul ini dirancang untuk membantu siswa memilih buku yang ingin mereka pinjam dan menandai buku tersebut untuk peminjaman. Proses peminjaman biasanya melibatkan menentukan periode peminjaman dan jumlah buku yang ingin dipinjam. Setelah buku dipinjam, siswa akan menerima konfirmasi peminjaman. Sebagai tambahan, dalam aplikasi ini juga tersedia fitur buku yang sedang dipinjam dimana siswa dapat menyelesaikan peminjaman tiap buku, memberikan review, dan menyimpan quotes yang terdapat dalam buku tersebut.
 
 3. Menulis ulasan mengenai buku yang telah dibaca - Novrizal Airsyahputra
 
@@ -70,11 +76,27 @@ Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
 
     Modul ini dirancang untuk membagikan kutipan (quotes) dari buku yang siswa baca berdasarkan judul buku tertentu. Ide utamanya adalah menciptakan satu tempat di mana siswa dapat berbagi kutipan favorit mereka dari buku favorit mereka dan siswa lain dapat membaca kutipan buku tersebut.
 
+<<<<<<< HEAD
+**Roles atau pembqgian kerja**
+
+1. Modul
+    * Mencari buku - buku yang tersedia dalam aplikasi perpustakaan (katalog) - Samuel Widjaja
+    * Melakukan peminjaman online terhadap buku yang diinginkan di dalam aplikasi perpustakaan - Sabrina Atha Shania
+    * Mereview buku yang telah dibaca - Novrizal Airsyahputra
+    * Menyajikan seluruh quotes yang ditambahkan oleh user berdasarkan judul buku - Fari Hafizh Ramadhan
+    
+2. Dasar aplikasi mobile
+    * Dashboard
+    * Homepage
+    * Index
+	
+    Di-handle oleh seluruh anggota.
+=======
 **🌤️Role atau peran pengguna beserta deskripsinya**
 
 1. Guest: Dapat mengakses landing page, sign in (login) dan sign up (register)
 2. Peminjam Buku: Memiliki kemampuan untuk mencari buku dari daftar katalog dengan kata kunci, seperti judul. Pengguna juga dapat melihat detail buku seperti judul, sinopsis, rating ulasan, dan dapat juga menulis kutipan. Memiliki kemampuan untuk meminjam buku dari daftar katalog dengan cara mengajukan permintaan peminjaman. Mencari dan menulis kutipan/quotes kesukaan dari buku dan bisa di-post pada halaman “Quotes”. Diberikan kesempatan untuk menuliskan ulasan tentang buku yang telah mereka baca.
-3. Librarian: Mengelola katalog buku. Dapat menambah, mengedit, dan menghapus buku dari katalog
+>>>>>>> 1c847cdd966d6eeeef0b4dd5ef1cf2e41befcef8
 
 ---
 
