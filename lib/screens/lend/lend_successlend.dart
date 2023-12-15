@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/screens/lend/lend_listlend.dart';
+import 'package:mutualibri/widgets/catalog.dart';
 
 import '../../constants.dart';
 
@@ -73,7 +73,7 @@ class _SuccessPageState extends State<SuccessPage> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => MyHomePage()),
+                    MaterialPageRoute(builder: (context) => CatalogTemplate()),
                   );
                 },
                 style: ElevatedButton.styleFrom(

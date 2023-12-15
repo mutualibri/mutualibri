@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:mutualibri/constants.dart';
-import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/screens/lend/lend_setinput.dart';
+import 'package:mutualibri/widgets/catalog.dart';
 
 class BookPage extends StatelessWidget {
   final Book book;
@@ -29,7 +29,7 @@ class BookPage extends StatelessWidget {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
+                MaterialPageRoute(builder: (context) => CatalogTemplate()),
               );
             },
           ),

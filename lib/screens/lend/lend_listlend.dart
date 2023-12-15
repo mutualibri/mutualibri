@@ -2,13 +2,13 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mutualibri/constants.dart';
-import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/one_book.dart';
 import 'package:mutualibri/models/quotes_model.dart';
 import 'package:mutualibri/screens/quotes/quote_form.dart';
 import 'package:mutualibri/screens/review/review_form.dart';
 import 'package:mutualibri/widgets/bottom_navbar.dart';
+import 'package:mutualibri/widgets/catalog.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -114,7 +114,7 @@ class _LendListState extends State<LendListPage> {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
+                MaterialPageRoute(builder: (context) => CatalogTemplate()),
               );
             },
           ),

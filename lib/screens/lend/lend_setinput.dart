@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/screens/lend/lend_successlend.dart';
 import 'package:mutualibri/models/database_book.dart';
+import 'package:mutualibri/widgets/catalog.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -50,7 +50,7 @@ class _BorrowPageState extends State<BorrowPage> {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
+                MaterialPageRoute(builder: (context) => CatalogTemplate()),
               );
               // Add any action you want when the image/icon is pressed
             },
