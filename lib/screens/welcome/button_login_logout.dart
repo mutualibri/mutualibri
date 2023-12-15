@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mutualibri/screens/login/login.dart';
-import 'package:mutualibri/screens/register.dart';
 
 import '../../../constants.dart';
 
@@ -32,14 +31,14 @@ class LoginAndSignupBtn extends StatelessWidget {
         const SizedBox(height: 16),
         ElevatedButton(
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return RegisterPage();
-                },
-              ),
-            );
+            // Navigator.push(
+            //   context,
+            //   MaterialPageRoute(
+            //     builder: (context) {
+            //       return RegisterPage();
+            //     },
+            //   ),
+            // );
           },
           style: ElevatedButton.styleFrom(
             backgroundColor: kPrimaryLightColor,

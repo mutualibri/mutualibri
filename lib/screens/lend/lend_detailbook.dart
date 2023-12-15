@@ -16,7 +16,7 @@ class BookPage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFFfbb825),
         title: const Text(
-          'LendBook',
+          'Detail of Book',
           style: TextStyle(color: Colors.black),
         ),
         actions: [

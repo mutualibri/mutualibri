@@ -20,7 +20,9 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
           style: const TextStyle(color: kPrimaryColor),
         ),
         GestureDetector(
-          onTap: press as void Function()?,
+          onTap: () {
+            Navigator.pushNamed(context, '/register');
+          },
           child: Text(
             login ? "Sign Up" : "Sign In",
             style: const TextStyle(

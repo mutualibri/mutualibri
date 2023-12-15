@@ -27,6 +27,8 @@ class Book {
         fields: Fields.fromJson(json["fields"]),
       );
 
+  get title => null;
+
   Map<String, dynamic> toJson() => {
         "model": modelValues.reverse[model],
         "pk": pk,
