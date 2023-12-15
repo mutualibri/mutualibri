@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/quotes_model.dart';
 import 'dart:convert';
 import 'package:mutualibri/screens/quotes/quote_form.dart';
 import 'package:mutualibri/screens/quotes/quote_null.dart';
+import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -20,7 +22,7 @@ class _QuotePageState extends State<QuotePage> {
 
   Future<List<Quote>> fetchQuote() async {
     final request = context.watch<CookieRequest>();
-    String url = 'http://127.0.0.1:8000/quote/json/';
+    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/quote/json/';
     var response = await request.get(url);
 
     // melakukan konversi data json menjadi object Quote
@@ -51,24 +53,31 @@ class _QuotePageState extends State<QuotePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Center(
-            child: Text(
-              'Quote',
-            ),
-          ),
-          backgroundColor: Color.fromARGB(255, 251, 207, 103),
-          foregroundColor: Colors.white,
-        ),
+      bottomNavigationBar: BottomNavigationBarExample(),
         body: Column(children: [
           Container(
-            padding: const EdgeInsets.all(20.0),
-            child: Text(
-              "Your Daily Dose of Quote",
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-              ),
+            color: kPrimaryColor,
+            padding: EdgeInsets.all(16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    'Quotes',
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                Image.asset(
+                  'assets/images/Logo.png',
+                  height: 30.0,
+                  width: 30.0,
+                ),
+              ],
             ),
           ),
           Container(

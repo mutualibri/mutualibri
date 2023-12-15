@@ -3,19 +3,8 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/menu.dart';
 import 'package:mutualibri/screens/lend/lend_listlend.dart';
-import 'package:mutualibri/screens/review_list.dart';
+import 'package:mutualibri/screens/review/review_list.dart';
 import 'package:mutualibri/widgets/catalog.dart';
-
-class BottomNavigationBarExampleApp extends StatelessWidget {
-  const BottomNavigationBarExampleApp({Key? key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: BottomNavigationBarExample(),
-    );
-  }
-}
 
 class BottomNavigationBarExample extends StatefulWidget {
   const BottomNavigationBarExample({Key? key});
@@ -78,7 +67,7 @@ class _BottomNavigationBarExampleState
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
+                MaterialPageRoute(builder: (context) => CatalogTemplate()),
               );
             },
           ),

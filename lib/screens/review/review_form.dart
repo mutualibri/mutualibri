@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/menu.dart';
-import 'package:mutualibri/screens/review_list.dart';
+import 'package:mutualibri/screens/review/review_list.dart';
 import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
@@ -27,13 +27,26 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text(
-            'Form Add Review',
-          ),
+        backgroundColor: const Color(0xFFfbb825),
+        title: const Text(
+          'Form Add Review',
+          style: TextStyle(color: Colors.black),
         ),
-        backgroundColor: kPrimaryColor,
-        foregroundColor: kPrimaryLightColor,
+        actions: [
+          IconButton(
+            icon: Image.asset(
+              'assets/images/Logo.png',
+              height: 50,
+              width: 50,
+            ),
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => MyHomePage()),
+              );
+            },
+          ),
+        ],
       ),
       body: Form(
         key: _formKey,
@@ -131,7 +144,7 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                         );
 
                         final response = await request.postJson(
-                          "http://127.0.0.1:8000/review/create-flutter/",
+                          "https://mutualibri-a08-tk.pbp.cs.ui.ac.id/review/create-flutter/",
                           jsonEncode(<String, String>{
                             'title': _title,
                             'rating': _rating.toString(),
@@ -147,6 +160,10 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                               content: Text("Review is successfully added!"),
                             ),
                           );
+
+                          // Pop the current route (ReviewFormPage) from the stack
+                          Navigator.pop(context);
+                          
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -166,7 +183,8 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                       _formKey.currentState!.reset();
                     },
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                       decoration: BoxDecoration(
                         color: kPrimaryColor,
                         borderRadius: BorderRadius.circular(8),

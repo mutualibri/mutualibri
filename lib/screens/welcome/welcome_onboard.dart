@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mutualibri/models/onboard_model.dart';
-import 'package:mutualibri/screens/list_product.dart';
 import 'package:mutualibri/screens/login/login.dart';
 import 'package:mutualibri/screens/welcome/welcome_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';

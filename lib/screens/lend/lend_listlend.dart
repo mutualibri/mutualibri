@@ -6,6 +6,7 @@ import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/one_book.dart';
 import 'package:mutualibri/models/quotes_model.dart';
 import 'package:mutualibri/screens/quotes/quote_form.dart';
+import 'package:mutualibri/screens/review/review_form.dart';
 import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
@@ -96,6 +97,7 @@ class _LendListState extends State<LendListPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNavigationBarExample(),
       body: Column(
         children: [
           Container(
@@ -316,7 +318,16 @@ class _LendListState extends State<LendListPage> {
                                                   ),
                                                 ),
                                                 InkWell(
-                                                  onTap: () {},
+                                                  onTap: () {
+                                                    // Navigate to QuoteForm
+                                                    Navigator.pushReplacement(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            ReviewFormPage(),
+                                                      ),
+                                                    );
+                                                  },
                                                   splashFactory:
                                                       InkSplash.splashFactory,
                                                   child: Text(
