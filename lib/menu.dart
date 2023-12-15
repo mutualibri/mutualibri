@@ -23,7 +23,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Shopping List'),
       ),
-      bottomNavigationBar: BottomNavigationBarExample(),
+      //bottomNavigationBar: MyBottomNavBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),

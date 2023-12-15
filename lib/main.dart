@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mutualibri/screens/menu.dart';
 import 'package:mutualibri/screens/login/login.dart';
 import 'package:mutualibri/screens/welcome/welcome_screen.dart';
+import 'package:mutualibri/widgets/bottom_navbar.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 import 'package:mutualibri/constants.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
               ),
             )),
         home: const WelcomeScreen(),
+        //home: MyBottomNavBar(), 
       )
     );
   }

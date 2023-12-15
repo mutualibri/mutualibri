@@ -1,89 +1,118 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/screens/review_list.dart';
+import 'package:mutualibri/screens/welcome/welcome_screen.dart';
 
-class BottomNavigationBarExampleApp extends StatelessWidget {
-  const BottomNavigationBarExampleApp({Key? key});
+class MyBottomNavBar extends StatefulWidget {
+  @override
+  _MyBottomNavBarState createState() => _MyBottomNavBarState();
+}
+
+class _MyBottomNavBarState extends State<MyBottomNavBar> {
+  int _selectedIndex = 0;
+
+  static List<Widget> _widgetOptions = <Widget>[
+    WelcomeScreen(), // EH KATALOG
+    // lend di sini
+    ReviewProductPage(),
+      ReviewProductPage(),
+    ReviewProductPage(),
+
+
+    // TO DO!!!!!!!!!!!!!!!!
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: BottomNavigationBarExample(),
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        // appBar: AppBar(
+        //   backgroundColor: kPrimaryColor,
+        // ),
+        //backgroundColor: kPrimaryColor,
+        body: _widgetOptions.elementAt(_selectedIndex),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.book),
+              label: 'Lend',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.reviews),
+              label: 'Review',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.comment),
+              label: 'Quote',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: Colors.black, // Change the selected item color here
+          unselectedItemColor: Colors.grey, // You can also set the unselected item color
+          onTap: _onItemTapped,
+        ),
+      ),
     );
   }
 }
 
-class BottomNavigationBarExample extends StatefulWidget {
-  const BottomNavigationBarExample({Key? key});
-
-  @override
-  State<BottomNavigationBarExample> createState() =>
-      _BottomNavigationBarExampleState();
-}
-
-class _BottomNavigationBarExampleState
-    extends State<BottomNavigationBarExample> {
-  int _selectedIndex = 0;
-
-  void _onItemTapped(int index) {
-    if (index == 2) {
-      // If Review is tapped, navigate to the ReviewPage
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ReviewProductPage(),
-        ),
-      );
-    } else {
-      setState(() {
-        _selectedIndex = index;
-      });
-    }
-  }
-
+class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('mutualibri'),
+    return Container(
+      child: Center(
+        //TO DO SAMMY
+        child: ReviewProductPage(),
       ),
-      bottomNavigationBar: Container(
-        color: Colors.black,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
-          child: GNav(
-            backgroundColor: Colors.black,
-            color: Colors.white,
-            activeColor: Colors.white,
-            tabBackgroundColor: Colors.grey.shade800,
-            padding: EdgeInsets.all(16),
-            gap: 8, // Gap antara icon dan text
-            tabs: const [
-              GButton(
-                icon: Icons.home,
-                text: 'Home',
-              ),
-              GButton(
-                icon: Icons.book,
-                text: 'Checkout',
-              ),
-              GButton(
-                icon: Icons.reviews,
-                text: 'Review',
-              ),
-              GButton(
-                icon: Icons.comment,
-                text: 'Quotes',
-              ),
-              // GButton(
-              //   icon: Icons.person,
-              //   text: 'Profile',
-              // ),
-            ],
-            selectedIndex: _selectedIndex,
-            onTabChange: _onItemTapped,
-          ),
-        ),
+    );
+  }
+}
+
+class LendScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        //TO DO TATA
+        child: ReviewProductPage(),
+
+      ),
+    );
+  }
+}
+
+class ReviewScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: ReviewProductPage(),
+      ),
+    );
+  }
+}
+
+class QuoteScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        //TO DO FARI
+        child: ReviewProductPage(),
       ),
     );
   }

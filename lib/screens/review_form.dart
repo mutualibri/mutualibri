@@ -147,6 +147,10 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                               content: Text("Review is successfully added!"),
                             ),
                           );
+
+                          // Pop the current route (ReviewFormPage) from the stack
+                          Navigator.pop(context);
+                          
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
@@ -166,7 +170,8 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                       _formKey.currentState!.reset();
                     },
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                       decoration: BoxDecoration(
                         color: kPrimaryColor,
                         borderRadius: BorderRadius.circular(8),
