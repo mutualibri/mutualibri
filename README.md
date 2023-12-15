@@ -49,7 +49,11 @@ Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen pe
 
 ### 📱 Gambaran besar aplikasi
 
+<<<<<<< HEAD
+‘mututalibri’ adalah sebuah aplikasi seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Situs ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Situs ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
+=======
 **📲 Deskripsi Aplikasi mobile**
+>>>>>>> 1c847cdd966d6eeeef0b4dd5ef1cf2e41befcef8
 
 ‘mututalibri’ adalah sebuah aplikasi seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Aplikasi ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Aplikasi ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
 
@@ -72,10 +76,27 @@ Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
 
     Modul ini dirancang untuk membagikan kutipan (quotes) dari buku yang siswa baca berdasarkan judul buku tertentu. Ide utamanya adalah menciptakan satu tempat di mana siswa dapat berbagi kutipan favorit mereka dari buku favorit mereka dan siswa lain dapat membaca kutipan buku tersebut.
 
+<<<<<<< HEAD
+**Roles atau pembqgian kerja**
+
+1. Modul
+    * Mencari buku - buku yang tersedia dalam aplikasi perpustakaan (katalog) - Samuel Widjaja
+    * Melakukan peminjaman online terhadap buku yang diinginkan di dalam aplikasi perpustakaan - Sabrina Atha Shania
+    * Mereview buku yang telah dibaca - Novrizal Airsyahputra
+    * Menyajikan seluruh quotes yang ditambahkan oleh user berdasarkan judul buku - Fari Hafizh Ramadhan
+    
+2. Dasar aplikasi mobile
+    * Dashboard
+    * Homepage
+    * Index
+	
+    Di-handle oleh seluruh anggota.
+=======
 **🌤️Role atau peran pengguna beserta deskripsinya**
 
 1. Guest: Dapat mengakses landing page, sign in (login) dan sign up (register)
 2. Peminjam Buku: Memiliki kemampuan untuk mencari buku dari daftar katalog dengan kata kunci, seperti judul. Pengguna juga dapat melihat detail buku seperti judul, sinopsis, rating ulasan, dan dapat juga menulis kutipan. Memiliki kemampuan untuk meminjam buku dari daftar katalog dengan cara mengajukan permintaan peminjaman. Mencari dan menulis kutipan/quotes kesukaan dari buku dan bisa di-post pada halaman “Quotes”. Diberikan kesempatan untuk menuliskan ulasan tentang buku yang telah mereka baca.
+>>>>>>> 1c847cdd966d6eeeef0b4dd5ef1cf2e41befcef8
 
 ---
 
