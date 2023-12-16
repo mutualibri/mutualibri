@@ -2,7 +2,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/models/review.dart';
-import 'package:mutualibri/widgets/bottom_navbar.dart';
+import 'package:mutualibri/widgets/drawer.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -18,7 +18,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
 
   Future<List<Review>> fetchReview() async {
     final request = context.watch<CookieRequest>();
-    String url = 'http://127.0.0.1:8000/review/json/';
+    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/review/json/';
 
     var response = await request.get(url);
 

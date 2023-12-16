@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mutualibri/screens/lend/lend_listlend.dart';
+import 'package:mutualibri/screens/login/login.dart';
 import 'package:mutualibri/screens/quotes/quote_template.dart';
 import 'package:mutualibri/screens/review/review_list.dart';
 import 'package:mutualibri/widgets/catalog.dart';
+import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class DrawerClass extends StatelessWidget {
   const DrawerClass({super.key});
@@ -61,6 +63,16 @@ class DrawerClass extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => const QuotePage(),
                 ),
+              );
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.logout),
+            title: const Text('Logout'),
+            onTap: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => LoginPage()),
               );
             },
           ),

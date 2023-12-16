@@ -5,7 +5,7 @@ import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/screens/lend/lend_detailbook.dart';
 import 'package:mutualibri/screens/login/login.dart';
-import 'package:mutualibri/widgets/bottom_navbar.dart';
+import 'package:mutualibri/widgets/drawer.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
 
@@ -72,12 +72,15 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFfbb825),
-        title: const Text('Catalog', style: TextStyle(color: Colors.black),),
+        title: Text(
+          'Catalog',
+          style: TextStyle(color: Colors.black),
+        ),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: SizedBox(
-              width: 300,
+              width: 250, // Set the desired width for the TextField
               child: TextField(
                 controller: _searchController,
                 onChanged: _onSearchChanged,
@@ -88,12 +91,6 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
                 ),
               ),
             ),
-          ),
-          IconButton(
-            icon: Icon(Icons.logout),
-            onPressed: () {
-              _logout(context);
-            },
           ),
         ],
       ),
@@ -220,7 +217,8 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
 
   void _logout(BuildContext context) async {
     final request = context.read<CookieRequest>();
-    await request.logout('http://127.0.0.1:8000/auth/logout/');
+    await request
+        .logout('https://mutualibri-a08-tk.pbp.cs.ui.ac.id/auth/logout/');
 
     // Navigate to the login page after logout
     Navigator.pushReplacement(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mutualibri/register/register.dart';
-import 'package:mutualibri/widgets/bottom_navbar.dart';
+import 'package:mutualibri/widgets/drawer.dart';
 import 'package:mutualibri/widgets/catalog.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
