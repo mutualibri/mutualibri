@@ -84,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   },
                 );
 
-                if (response['status'] == 'success') {
+                if (response['status'] == true) {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
