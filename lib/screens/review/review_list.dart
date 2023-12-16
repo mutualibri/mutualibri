@@ -2,6 +2,7 @@ import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/models/review.dart';
+import 'package:mutualibri/screens/review/review_form.dart';
 import 'package:mutualibri/widgets/drawer.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
@@ -75,7 +76,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ReviewProductPage(),
+                        builder: (context) => ReviewFormPage(),
                       ),
                     );
                   },
