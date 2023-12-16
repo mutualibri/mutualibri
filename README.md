@@ -70,7 +70,7 @@ Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut.
 
 3. Menulis ulasan mengenai buku yang telah dibaca - Novrizal Airsyahputra
 
-    Modul ini dirancang untuk menilai buku dan memberikan ulasan terperinci. Siswa dapat memberikan penilaian dalam bentuk like or dislike terhadap buku yang mereka baca, serta menulis ulasan yang mencakup aspek-aspek seperti plot, karakter, gaya penulisan, dan pesan yang disampaikan oleh buku tersebut.
+    Modul ini dirancang untuk menilai buku dan memberikan ulasan terperinci. Selain itu, menulis ulasan yang mencakup aspek-aspek seperti plot, karakter, gaya penulisan, dan pesan yang disampaikan oleh buku tersebut. Perbedaan dengan versi _website_-nya adalah tidak diterapkannya _like_ dan _dislike_ dan _sorting recent_ dan _oldest_-nya.
 
 4. Menyajikan seluruh quotes yang ditambahkan oleh user berdasarkan judul buku - Fari Hafizh Ramadhan
 
