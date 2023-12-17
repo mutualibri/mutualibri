@@ -49,7 +49,6 @@ Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen pe
 
 ### 📱 Gambaran besar aplikasi
 
-<<<<<<< HEAD
 ‘mututalibri’ adalah sebuah aplikasi seperti perpustakaan online yang dirancang sebagai wadah siswa mencari dan menemukan buku. Situs ini menghadirkan proses peminjaman buku online kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Situs ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
 =======
 **📲 Deskripsi Aplikasi mobile**
