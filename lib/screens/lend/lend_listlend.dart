@@ -1,10 +1,10 @@
+// ignore_for_file: avoid_print, library_private_types_in_public_api, sized_box_for_whitespace
+
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/one_book.dart';
-import 'package:mutualibri/models/quotes_model.dart';
 import 'package:mutualibri/screens/quotes/quote_form.dart';
 import 'package:mutualibri/screens/review/review_form.dart';
 import 'package:mutualibri/widgets/drawer.dart';
@@ -57,20 +57,20 @@ class _LendListState extends State<LendListPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: Text('Confirm Delete'),
-          content: Text('Are you sure you want to delete this data?'),
+          title: const Text('Confirm Delete'),
+          content: const Text('Are you sure you want to delete this data?'),
           actions: [
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(false);
               },
-              child: Text('Cancel'),
+              child: const Text('Cancel'),
             ),
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop(true);
               },
-              child: Text('Delete'),
+              child: const Text('Delete'),
             ),
           ],
         );
@@ -78,15 +78,18 @@ class _LendListState extends State<LendListPage> {
     );
 
     if (confirmDelete == true) {
+      // ignore: use_build_context_synchronously
       final cookieRequest = context.read<CookieRequest>();
       String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/delete-lend-flutter/';
 
       try {
+        // ignore: unused_local_variable
         var response = await cookieRequest.post(url, jsonEncode(data));
+        // ignore: use_build_context_synchronously
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => LendListPage(),
+            builder: (context) => const LendListPage(),
           ),
         );
       } catch (error) {
@@ -114,22 +117,22 @@ class _LendListState extends State<LendListPage> {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => CatalogTemplate()),
+                MaterialPageRoute(builder: (context) => const CatalogTemplate()),
               );
             },
           ),
         ],
       ),
-      drawer: DrawerClass(),
+      drawer: const DrawerClass(),
       body: FutureBuilder(
                 future: fetchProduct(),
                 builder: (context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   } else if (snapshot.hasError) {
                     return Center(child: Text('Error: ${snapshot.error}'));
                   } else if (!snapshot.hasData || snapshot.data.isEmpty) {
-                    return Column(
+                    return const Column(
                       children: [
                         Text(
                           "Tidak ada data buku.",
@@ -148,12 +151,12 @@ class _LendListState extends State<LendListPage> {
                           (context, AsyncSnapshot<List<Book>> bookSnapshot) {
                         if (bookSnapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return Center(child: CircularProgressIndicator());
+                          return const Center(child: CircularProgressIndicator());
                         } else if (bookSnapshot.hasError) {
                           return Text('Error: ${bookSnapshot.error}');
                         } else if (!bookSnapshot.hasData ||
                             bookSnapshot.data!.isEmpty) {
-                          return Text('No books available');
+                          return const Text('No books available');
                         } else {
                           List<Book> listBook = bookSnapshot.data!;
                           return ListView.builder(
@@ -234,7 +237,7 @@ class _LendListState extends State<LendListPage> {
                                               },
                                             ),
                                           ),
-                                          SizedBox(width: 16),
+                                          const SizedBox(width: 16),
                                           Expanded(
                                             child: Column(
                                               crossAxisAlignment:
@@ -252,7 +255,7 @@ class _LendListState extends State<LendListPage> {
                                                             1]
                                                         .fields
                                                         .title,
-                                                    style: TextStyle(
+                                                    style: const TextStyle(
                                                       fontSize: 18.0,
                                                       fontWeight:
                                                           FontWeight.bold,
@@ -273,13 +276,13 @@ class _LendListState extends State<LendListPage> {
                                                   style: const TextStyle(
                                                       fontSize: 16.0),
                                                 ),
-                                                SizedBox(height: 10),
+                                                const SizedBox(height: 10),
                                                 Text(
                                                   "End Date of lend this book : ${snapshot.data![index].fields.endDate.toLocal().toString().substring(0, 10)}",
                                                   style: const TextStyle(
                                                       fontSize: 16.0),
                                                 ),
-                                                SizedBox(height: 10),
+                                                const SizedBox(height: 10),
                                                 Text(
                                                   isEndDateOverdue(snapshot
                                                           .data![index]
@@ -305,13 +308,13 @@ class _LendListState extends State<LendListPage> {
                                                       context,
                                                       MaterialPageRoute(
                                                         builder: (context) =>
-                                                            ReviewFormPage(),
+                                                            const ReviewFormPage(),
                                                       ),
                                                     );
                                                   },
                                                   splashFactory:
                                                       InkSplash.splashFactory,
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Review this book',
                                                     style: TextStyle(
                                                       fontSize: 16,
@@ -321,7 +324,7 @@ class _LendListState extends State<LendListPage> {
                                                     ),
                                                   ),
                                                 ),
-                                                SizedBox(height: 10),
+                                                const SizedBox(height: 10),
                                                 InkWell(
                                                   onTap: () {
                                                     // Navigate to QuoteForm
@@ -335,7 +338,7 @@ class _LendListState extends State<LendListPage> {
                                                   },
                                                   splashFactory:
                                                       InkSplash.splashFactory,
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Take quote from this book',
                                                     style: TextStyle(
                                                       fontSize: 16,
@@ -350,13 +353,13 @@ class _LendListState extends State<LendListPage> {
                                           ),
                                         ],
                                       ),
-                                      SizedBox(height: 10),
+                                      const SizedBox(height: 10),
                                       ElevatedButton(
                                         onPressed: () {
                                           // Add functionality for the "Finish your lend" button
                                           deleteData(snapshot.data![index]);
                                         },
-                                        child: Text('Finish your lend'),
+                                        child: const Text('Finish your lend'),
                                       ),
                                     ],
                                   ),

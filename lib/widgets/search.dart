@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
@@ -76,12 +78,12 @@ class _SearchBartesState extends State<SearchBartes> {
       },
       autofocus: true,
       cursorColor: Colors.white,
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.white,
         fontSize: 20,
       ),
       textInputAction: TextInputAction.search,
-      decoration: InputDecoration(
+      decoration: const InputDecoration(
         enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(color: Colors.white)),
         focusedBorder: UnderlineInputBorder(
@@ -130,7 +132,7 @@ class _SearchBartesState extends State<SearchBartes> {
         actions: !_searchBoolean
             ? [
                 IconButton(
-                  icon: Icon(Icons.search),
+                  icon: const Icon(Icons.search),
                   onPressed: () {
                     setState(() {
                       _searchBoolean = true;
@@ -141,7 +143,7 @@ class _SearchBartesState extends State<SearchBartes> {
               ]
             : [
                 IconButton(
-                    icon: Icon(Icons.clear),
+                    icon: const Icon(Icons.clear),
                     onPressed: () {
                       setState(() {
                         _searchBoolean = false;

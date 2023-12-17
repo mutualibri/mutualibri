@@ -1,9 +1,7 @@
+// ignore_for_file: library_private_types_in_public_api, non_constant_identifier_names, avoid_unnecessary_containers
+
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:mutualibri/constants.dart';
-import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/models/quotes_model.dart';
-import 'dart:convert';
 import 'package:mutualibri/screens/quotes/quote_form.dart';
 import 'package:mutualibri/screens/quotes/quote_null.dart';
 import 'package:mutualibri/widgets/drawer.dart';
@@ -70,13 +68,13 @@ class _QuotePageState extends State<QuotePage> {
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => CatalogTemplate()),
+                  MaterialPageRoute(builder: (context) => const CatalogTemplate()),
                 );
               },
             ),
           ],
         ),
-        drawer: DrawerClass(),
+        drawer: const DrawerClass(),
         body: Column(children: [
           Container(
             margin: const EdgeInsets.only(bottom: 16),
@@ -87,13 +85,13 @@ class _QuotePageState extends State<QuotePage> {
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
-                        Color.fromARGB(255, 241, 188, 74)),
+                        const Color.fromARGB(255, 241, 188, 74)),
                   ),
                   onPressed: () async {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => QuoteForm(),
+                        builder: (context) => const QuoteForm(),
                       ),
                     );
                   },

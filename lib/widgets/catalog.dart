@@ -1,7 +1,8 @@
+// ignore_for_file: library_private_types_in_public_api, unnecessary_const, unnecessary_string_interpolations, unused_element, use_build_context_synchronously
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/screens/lend/lend_detailbook.dart';
 import 'package:mutualibri/screens/login/login.dart';
@@ -72,7 +73,7 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xFFfbb825),
-        title: Text(
+        title: const Text(
           'Catalog',
           style: TextStyle(color: Colors.black),
         ),
@@ -84,7 +85,7 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
               child: TextField(
                 controller: _searchController,
                 onChanged: _onSearchChanged,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   filled: true,
                   fillColor: Color.fromARGB(255, 255, 229, 173),
@@ -95,7 +96,7 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
         ],
       ),
       body: _buildBody(),
-      drawer: DrawerClass(),
+      drawer: const DrawerClass(),
     );
   }
 
@@ -223,7 +224,7 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
     // Navigate to the login page after logout
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => LoginPage()),
+      MaterialPageRoute(builder: (context) => const LoginPage()),
     );
   }
 }

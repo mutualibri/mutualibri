@@ -4,7 +4,6 @@ import 'package:mutualibri/screens/login/login.dart';
 import 'package:mutualibri/screens/quotes/quote_template.dart';
 import 'package:mutualibri/screens/review/review_list.dart';
 import 'package:mutualibri/widgets/catalog.dart';
-import 'package:pbp_django_auth/pbp_django_auth.dart';
 
 class DrawerClass extends StatelessWidget {
   const DrawerClass({super.key});
@@ -19,7 +18,7 @@ class DrawerClass extends StatelessWidget {
           ),
           // Adding clickable menu
           ListTile(
-            leading: Icon(Icons.collections),
+            leading: const Icon(Icons.collections),
             title: const Text('Our Collections'),
             onTap: () {
               Navigator.pushReplacement(
@@ -31,7 +30,7 @@ class DrawerClass extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.list),
+            leading: const Icon(Icons.list),
             title: const Text('My LendList'),
             onTap: () {
               Navigator.pushReplacement(
@@ -43,7 +42,7 @@ class DrawerClass extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.rate_review),
+            leading: const Icon(Icons.rate_review),
             title: const Text('Reviews of Books'),
             onTap: () {
               Navigator.pushReplacement(
@@ -55,7 +54,7 @@ class DrawerClass extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.format_quote),
+            leading: const Icon(Icons.format_quote),
             title: const Text('Quotes of Books'),
             onTap: () {
               Navigator.pushReplacement(
@@ -67,12 +66,12 @@ class DrawerClass extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.logout),
+            leading: const Icon(Icons.logout),
             title: const Text('Logout'),
             onTap: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => LoginPage()),
+                MaterialPageRoute(builder: (context) => const LoginPage()),
               );
             },
           ),

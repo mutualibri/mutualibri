@@ -31,10 +31,10 @@ class MobileWelcomeScreen extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        WelcomeImage(),
+        const WelcomeImage(),
         SizedBox(
           width: MediaQuery.of(context).size.width * 0.8,
-          child: LoginAndSignupBtn(),
+          child: const LoginAndSignupBtn(),
         ),
       ],
     );
@@ -50,7 +50,7 @@ class DesktopWelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(
+        const Expanded(
           child: WelcomeImage(),
         ),
         Expanded(
@@ -59,7 +59,7 @@ class DesktopWelcomeScreen extends StatelessWidget {
             children: [
               SizedBox(
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: LoginAndSignupBtn(),
+                child: const LoginAndSignupBtn(),
               ),
             ],
           ),

@@ -1,15 +1,13 @@
-import 'package:flutter/gestures.dart';
+// ignore_for_file: library_private_types_in_public_api, use_build_context_synchronously
+
 import 'package:mutualibri/components/already_account.dart';
 import 'package:mutualibri/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:mutualibri/screens/login/login_screen_top_image.dart';
 import 'package:mutualibri/screens/register/register.dart';
 import 'package:mutualibri/widgets/catalog.dart';
-import 'package:mutualibri/widgets/search.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-
-import '../../../../constants.dart';
 
 void main() {
   runApp(const LoginApp());
@@ -50,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            LoginScreenTopImage(),
+            const LoginScreenTopImage(),
             TextField(
               controller: _usernameController,
               decoration: const InputDecoration(
@@ -72,7 +70,6 @@ class _LoginPageState extends State<LoginPage> {
                 String password = _passwordController.text;
 
                 // Cek kredensial
-                // TODO: Ganti URL dan jangan lupa tambahkan trailing slash (/) di akhir URL!
                 // Untuk menyambungkan Android emulator dengan Django pada localhost,
                 // gunakan URL http://10.0.2.2/
                 final response = await request.login(
@@ -86,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                   String uname = response['username'];
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => CatalogTemplate()),
+                    MaterialPageRoute(builder: (context) => const CatalogTemplate()),
                   );
                   ScaffoldMessenger.of(context)
                     ..hideCurrentSnackBar()
