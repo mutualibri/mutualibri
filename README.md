@@ -50,11 +50,11 @@ Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen pe
 
 ‘mutualibri’ adalah sebuah aplikasi seperti perpustakaan _online_ yang dirancang sebagai wadah siswa mencari dan menemukan buku. Situs ini menghadirkan proses peminjaman buku _online_ kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Situs ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
 
-** 📲 Deskripsi Aplikasi _Mobile_**
+**📲 Deskripsi Aplikasi _Mobile_**
 
 ‘mututalibri’ adalah sebuah aplikasi seperti perpustakaan _online_ yang dirancang sebagai wadah siswa mencari dan menemukan buku. Aplikasi ini menghadirkan proses peminjaman buku _online_ kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Aplikasi ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
 
-** 💫 Fitur/Modul dan Pembagian Tugas Modul**
+**💫 Fitur/Modul dan Pembagian Tugas Modul**
 
 Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut:
 1. Melakukan pencarian buku yang tersedia dalam katalog perpustakaan - Samuel Widjaja
@@ -73,6 +73,8 @@ Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut:
 
     Modul ini dirancang untuk membagikan kutipan (_quotes_) dari buku yang siswa baca berdasarkan judul buku tertentu. Ide utamanya adalah menciptakan satu tempat di mana siswa dapat berbagi kutipan favorit mereka dari buku favorit mereka dan siswa lain dapat membaca kutipan buku tersebut.
 
+---
+
 ### ⛄ _Roles_ atau Pembagian Kerja
 
 1. Modul
@@ -87,9 +89,8 @@ Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut:
     * _Index_
 	
     Di-_handle_ oleh seluruh anggota.
-=======
 
-**🌤️ Role atau peran pengguna beserta deskripsinya**
+**🌤️ Role atau Peran _User_ + Deskripsi**
 
 1. Guest: Dapat mengakses _landing page_, _sign in_ (_login_), dan _sign up_ (_register_).
 2. Peminjam Buku: Memiliki kemampuan untuk mencari buku dari daftar katalog dengan kata kunci, seperti judul. Pengguna juga dapat melihat detail buku seperti judul, sinopsis, rating ulasan, dan dapat juga menulis kutipan. Memiliki kemampuan untuk meminjam buku dari daftar katalog dengan cara mengajukan permintaan peminjaman. Mencari dan menulis _review_ atau _quotes_ dari buku yang telah dibaca, serta dapat di-_post_ pada halaman "Review" atau “Quotes”. 
@@ -104,5 +105,7 @@ Berikut adalah langkah-langkah yang akan dilakukan untuk mengintegrasikan aplika
 3. Mengimplementasikan desain front-end untuk aplikasi berdasarkan desain website yang sudah ada sebelumnya.
 4. Melakukan integrasi antara front-end dengan back-end dengan menggunakan konsep asynchronous HTTP.
 
-### Tautan berita acara
+---
+
+### 🗓️ Tautan berita acara
 https://docs.google.com/spreadsheets/d/14apyXurh3-wqJJQWC5R91c0Tqf8GeQGRpwGzvzTd2o4/edit#gid=959655085
