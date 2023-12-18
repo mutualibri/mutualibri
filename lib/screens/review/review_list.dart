@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, unnecessary_string_interpolations
+
 import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
 import 'package:mutualibri/constants.dart';
@@ -46,14 +48,14 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
         backgroundColor: kPrimaryColor,
         foregroundColor: kPrimaryLightColor,
       ),
-      drawer: DrawerClass(),
+      drawer: const DrawerClass(),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
               padding: const EdgeInsets.all(20.0),
-              child: Text(
+              child: const Text(
                 "You can add your own book review here!",
                 style: TextStyle(
                   fontSize: 20.0,
@@ -70,13 +72,13 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                 child: ElevatedButton(
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
-                        Color.fromARGB(255, 241, 188, 74)),
+                        const Color.fromARGB(255, 241, 188, 74)),
                   ),
                   onPressed: () async {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => ReviewFormPage(),
+                        builder: (context) => const ReviewFormPage(),
                       ),
                     );
                   },
@@ -129,7 +131,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                         elevation: 5,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
-                          side: BorderSide(color: Colors.black),
+                          side: const BorderSide(color: Colors.black),
                         ),
                         margin: const EdgeInsets.symmetric(
                           horizontal: 16,
@@ -149,7 +151,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                                     text: TextSpan(
                                       style: DefaultTextStyle.of(context).style,
                                       children: [
-                                        TextSpan(
+                                        const TextSpan(
                                           text: "@",
                                           style: TextStyle(
                                             fontSize: 18.0,
@@ -159,7 +161,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                                         TextSpan(
                                           text:
                                               "${snapshot.data![index].fields.username}",
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 18.0,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -171,7 +173,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                                     DateFormat.yMd().format(snapshot
                                         .data![index].fields.dateAdded
                                         .toLocal()),
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                       fontSize: 12.0,
                                       color: Colors.grey,
                                     ),
@@ -186,7 +188,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     "Title: ",
                                     style: TextStyle(
                                       fontSize: 18.0,
@@ -196,7 +198,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                                   Expanded(
                                     child: Text(
                                       "${snapshot.data![index].fields.title}",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 18.0,
                                       ),
                                     ),
@@ -207,7 +209,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     "Rating: ",
                                     style: TextStyle(
                                       fontSize: 18.0,
@@ -217,7 +219,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                                   Expanded(
                                     child: Text(
                                       "${snapshot.data![index].fields.rating}/100",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 18.0,
                                       ),
                                     ),
@@ -228,7 +230,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                               Row(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
+                                  const Text(
                                     "Review: ",
                                     style: TextStyle(
                                       fontSize: 18.0,
@@ -238,7 +240,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
                                   Expanded(
                                     child: Text(
                                       "${snapshot.data![index].fields.review}",
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         fontSize: 18.0,
                                       ),
                                     ),

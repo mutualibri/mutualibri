@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api, unnecessary_string_interpolations, use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -50,7 +52,7 @@ class _BorrowPageState extends State<BorrowPage> {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => CatalogTemplate()),
+                MaterialPageRoute(builder: (context) => const CatalogTemplate()),
               );
               // Add any action you want when the image/icon is pressed
             },
@@ -111,44 +113,27 @@ class _BorrowPageState extends State<BorrowPage> {
                 ),
               ),
               const SizedBox(height: 10.0),
-              RichText(
-                text: TextSpan(
-                  children: [
-                    const TextSpan(
-                      text: 'Synopsis: \n',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    TextSpan(
-                      text: widget.book.fields.description,
-                      style: const TextStyle(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
+              Text(
+                // ignore: prefer_interpolation_to_compose_strings
+                'Synopsis: \n' + widget.book.fields.description,
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16.0,
                 ),
               ),
-              RichText(
-                text: const TextSpan(
-                  children: [
-                    TextSpan(
-                      text: ' \nNotes! \n',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    TextSpan(
-                      text:'Automatically set for 7 days.',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
+              Text(
+                // ignore: prefer_interpolation_to_compose_strings
+                ' ' + widget.book.fields.description,
+                style: const TextStyle(
+                  fontSize: 16.0,
                 ),
-                
+              ),
+              const Text(
+                ' \nNotes! \nAutomatically set for 7 days.',
+                style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               const SizedBox(height: 20.0),
               Center(

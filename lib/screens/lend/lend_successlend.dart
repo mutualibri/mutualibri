@@ -1,3 +1,5 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/screens/lend/lend_listlend.dart';
@@ -73,7 +75,7 @@ class _SuccessPageState extends State<SuccessPage> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => CatalogTemplate()),
+                    MaterialPageRoute(builder: (context) => const CatalogTemplate()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
@@ -96,7 +98,7 @@ class _SuccessPageState extends State<SuccessPage> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => LendListPage()),
+                    MaterialPageRoute(builder: (context) => const LendListPage()),
                   );
                 },
                 style: ElevatedButton.styleFrom(

@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
@@ -42,13 +44,13 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => CatalogTemplate()),
+                MaterialPageRoute(builder: (context) => const CatalogTemplate()),
               );
             },
           ),
         ],
       ),
-      drawer: DrawerClass(),
+      drawer: const DrawerClass(),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(
@@ -58,7 +60,7 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: "Title",
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
@@ -82,7 +84,7 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                 child: TextFormField(
                   decoration: InputDecoration(
                     labelText: "Review",
-                    focusedBorder: UnderlineInputBorder(
+                    focusedBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
                     ), 
                     border: OutlineInputBorder(
@@ -105,7 +107,7 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: "Rating (0-100)",
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.black),
@@ -136,7 +138,7 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                     onTap: () async {
                       if (_formKey.currentState!.validate()) {
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
+                          const SnackBar(
                             content: Row(
                               children: [
                                 CircularProgressIndicator(),
@@ -160,7 +162,7 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
 
                         if (response['status'] == 'success') {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
+                            const SnackBar(
                               content: Text("Review is successfully added!"),
                             ),
                           );
@@ -171,12 +173,12 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                           Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => ReviewProductPage(),
+                              builder: (context) => const ReviewProductPage(),
                             ),
                           );
                         } else {
                           ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
+                            const SnackBar(
                               content: Text(
                                 "There is an error when adding review, please try again!",
                               ),
@@ -188,12 +190,12 @@ class _ReviewFormPageState extends State<ReviewFormPage> {
                     },
                     child: Container(
                       padding:
-                          EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+                          const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
                       decoration: BoxDecoration(
                         color: kPrimaryColor,
                         borderRadius: BorderRadius.circular(8),
                       ),
-                      child: Row(
+                      child: const Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Icon(Icons.save, color: Colors.black),

@@ -1,7 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:mutualibri/models/database_book.dart';
 import 'package:mutualibri/screens/quotes/quote_template.dart';
 import 'package:mutualibri/widgets/drawer.dart';
 import 'package:mutualibri/widgets/catalog.dart';
@@ -42,13 +43,13 @@ class _QuoteFormState extends State<QuoteForm> {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => CatalogTemplate()),
+                MaterialPageRoute(builder: (context) => const CatalogTemplate()),
               );
             },
           ),
         ],
       ),
-      drawer: DrawerClass(),
+      drawer: const DrawerClass(),
       body: Center(
         child: Form(
           key: _formKey,
@@ -137,7 +138,7 @@ class _QuoteFormState extends State<QuoteForm> {
                     child: ElevatedButton(
                       style: ButtonStyle(
                         backgroundColor: MaterialStateProperty.all(
-                            Color.fromARGB(255, 241, 188, 74)),
+                            const Color.fromARGB(255, 241, 188, 74)),
                       ),
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
@@ -147,7 +148,6 @@ class _QuoteFormState extends State<QuoteForm> {
                               jsonEncode(<String, String>{
                                 'book_name': _bookName,
                                 'quotes': _quotes,
-                                // TODO: Sesuaikan field data sesuai dengan aplikasimu
                               }));
                           if (response['status'] == 'success') {
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -158,7 +158,7 @@ class _QuoteFormState extends State<QuoteForm> {
                             Navigator.pushReplacement(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => QuotePage(),
+                                builder: (context) => const QuotePage(),
                               ),
                             );
                           } else {

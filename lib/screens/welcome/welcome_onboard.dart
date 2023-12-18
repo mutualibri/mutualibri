@@ -1,6 +1,7 @@
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, avoid_print, sized_box_for_whitespace, use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:mutualibri/models/onboard_model.dart';
-import 'package:mutualibri/screens/login/login.dart';
 import 'package:mutualibri/screens/welcome/welcome_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -22,14 +23,14 @@ class _OnBoardState extends State<OnBoard> {
       desc:
           "Immerse yourself in the magic of literature as you explore our extensive collection of books available for borrowing",
       bg: Colors.white,
-      button: Color(0xFFFBB825),
+      button: const Color(0xFFFBB825),
     ),
     OnboardModel(
       img: 'assets/images/Logo.png',
       text: "Empower Your Expertise",
       desc:
           "Dive Deeper with Collaborative Skill Building!",
-      bg: Color(0xFFFBB825),
+      bg: const Color(0xFFFBB825),
       button: Colors.white,
     ),
     OnboardModel(
@@ -38,7 +39,7 @@ class _OnBoardState extends State<OnBoard> {
       desc:
           "Finally, our warmest welcome to you and enjoy your experience at mutualibri!",
       bg: Colors.white,
-      button: Color(0xFFFBB825),
+      button: const Color(0xFFFBB825),
     ),
   ];
 
@@ -74,7 +75,7 @@ class _OnBoardState extends State<OnBoard> {
             onPressed: () {
               _storeOnboardInfo();
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+                  context, MaterialPageRoute(builder: (context) => const WelcomeScreen()));
             },
             child: Text(
               "Skip",
@@ -90,7 +91,7 @@ class _OnBoardState extends State<OnBoard> {
         child: PageView.builder(
             itemCount: screens.length,
             controller: _pageController,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             onPageChanged: (int index) {
               setState(() {
                 currentIndex = index;
@@ -114,7 +115,7 @@ class _OnBoardState extends State<OnBoard> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                margin: EdgeInsets.symmetric(horizontal: 3.0),
+                                margin: const EdgeInsets.symmetric(horizontal: 3.0),
                                 width: currentIndex == index ? 25 : 8,
                                 height: 8,
                                 decoration: BoxDecoration(
@@ -153,17 +154,17 @@ class _OnBoardState extends State<OnBoard> {
                       if (index == screens.length - 1) {
                         await _storeOnboardInfo();
                         Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => WelcomeScreen()));
+                            MaterialPageRoute(builder: (context) => const WelcomeScreen()));
                       }
 
                       _pageController.nextPage(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         curve: Curves.bounceIn,
                       );
                     },
                     child: Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
+                          const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
                       decoration: BoxDecoration(
                           color: index % 2 == 0 ? kPrimaryColor : kwhite,
                           borderRadius: BorderRadius.circular(15.0)),
@@ -174,7 +175,7 @@ class _OnBoardState extends State<OnBoard> {
                               fontSize: 16.0,
                               color: index % 2 == 0 ? kwhite : kPrimaryColor),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15.0,
                         ),
                         Icon(

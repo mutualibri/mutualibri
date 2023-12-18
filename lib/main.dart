@@ -1,27 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:mutualibri/widgets/drawer.dart';
-import 'package:mutualibri/widgets/catalog.dart';
 import 'package:pbp_django_auth/pbp_django_auth.dart';
 import 'package:provider/provider.dart';
-import 'package:mutualibri/screens/login/login.dart';
 import 'package:mutualibri/screens/welcome/welcome_onboard.dart';
 import 'package:mutualibri/screens/welcome/welcome_screen.dart';
-import 'package:mutualibri/screens/welcome/welcome_onboard.dart';
-import 'package:pbp_django_auth/pbp_django_auth.dart';
-import 'package:provider/provider.dart';
 import 'package:mutualibri/constants.dart';
 import 'package:flutter/services.dart';
+// ignore: depend_on_referenced_packages
 import 'package:shared_preferences/shared_preferences.dart';
 
 int? isviewed;
 Future<void> main() async {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
   ));
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   isviewed = prefs.getInt('onBoard');
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -62,7 +57,7 @@ class MyApp extends StatelessWidget {
                 ),
               )),
               // home: MyBottomNavBar(),
-          home: isviewed != 0 ? OnBoard() : WelcomeScreen(),
+          home: isviewed != 0 ? OnBoard() : const WelcomeScreen(),
         ));
   }
 }

@@ -1,4 +1,4 @@
-import 'dart:convert';
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_final_fields, use_build_context_synchronously
 
 import 'package:flutter/material.dart';
 import 'package:mutualibri/screens/login/login.dart';
@@ -22,21 +22,21 @@ class _RegisterPageState extends State<RegisterPage> {
 
     return Scaffold(
       body: Container(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            RegisterScreenTopImage(),
+            const RegisterScreenTopImage(),
             TextField(
               controller: _usernameController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Username',
               ),
             ),
             const SizedBox(height: 12.0),
             TextField(
               controller: _passwordController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Password',
               ),
               obscureText: true,
@@ -44,7 +44,7 @@ class _RegisterPageState extends State<RegisterPage> {
             const SizedBox(height: 12.0),
             TextField(
               controller: _confirmPasswordController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Confirm Password',
               ),
               obscureText: true,
@@ -60,11 +60,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: Text('Error'),
-                      content: Text('Password and Confirm Password must be the same.'),
+                      title: const Text('Error'),
+                      content: const Text('Password and Confirm Password must be the same.'),
                       actions: [
                         TextButton(
-                          child: Text('OK'),
+                          child: const Text('OK'),
                           onPressed: () {
                             Navigator.pop(context);
                           },
@@ -88,16 +88,16 @@ class _RegisterPageState extends State<RegisterPage> {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: Text('Success'),
-                      content: Text('Registration successful!'),
+                      title: const Text('Success'),
+                      content: const Text('Registration successful!'),
                       actions: [
                         TextButton(
-                          child: Text('OK'),
+                          child: const Text('OK'),
                           onPressed: () {
                             Navigator.pop(context);
                             Navigator.push(
                               context,
-                              MaterialPageRoute(builder: (context) => LoginPage()),
+                              MaterialPageRoute(builder: (context) => const LoginPage()),
                             );
                           },
                         ),
@@ -108,11 +108,11 @@ class _RegisterPageState extends State<RegisterPage> {
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: Text('Error'),
+                      title: const Text('Error'),
                       content: Text(response['message'] ?? 'An error occurred.'),
                       actions: [
                         TextButton(
-                          child: Text('OK'),
+                          child: const Text('OK'),
                           onPressed: () {
                             Navigator.pop(context);
                           },
@@ -133,10 +133,10 @@ class _RegisterPageState extends State<RegisterPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
+                  MaterialPageRoute(builder: (context) => const LoginPage()),
                 );
               },
-              child: Text(
+              child: const Text(
                 'Already have an account?',
                 style: TextStyle(
                   fontSize: 16,
