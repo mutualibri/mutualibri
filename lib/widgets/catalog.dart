@@ -35,7 +35,7 @@ class _CatalogTemplateState extends State<CatalogTemplate> {
 
   Future<void> _fetchBooks() async {
     final request = context.read<CookieRequest>();
-    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/book/json/';
+    String url = 'https://sabrina-atha-mutualibriourproject.stndar.dev/book/json/';
     var response = await request.get(url);
 
     List<Book> listProduct = [];

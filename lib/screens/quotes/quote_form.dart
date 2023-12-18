@@ -144,7 +144,7 @@ class _QuoteFormState extends State<QuoteForm> {
                         if (_formKey.currentState!.validate()) {
                           // Kirim ke Django dan tunggu respons
                           final response = await request.postJson(
-                              "https://mutualibri-a08-tk.pbp.cs.ui.ac.id/quote/create-flutter/",
+                              "https://sabrina-atha-mutualibriourproject.stndar.dev/quote/create-flutter/",
                               jsonEncode(<String, String>{
                                 'book_name': _bookName,
                                 'quotes': _quotes,

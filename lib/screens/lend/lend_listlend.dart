@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:mutualibri/models/database_book.dart';
-import 'package:mutualibri/models/one_book.dart';
+import 'package:mutualibri/models/lend_book.dart';
 import 'package:mutualibri/screens/quotes/quote_form.dart';
 import 'package:mutualibri/screens/review/review_form.dart';
 import 'package:mutualibri/widgets/drawer.dart';
@@ -22,7 +22,7 @@ class LendListPage extends StatefulWidget {
 class _LendListState extends State<LendListPage> {
   Future<List<OneBook>> fetchProduct() async {
     final request = context.read<CookieRequest>();
-    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/json/';
+    String url = 'https://sabrina-atha-mutualibriourproject.stndar.dev/json/';
 
     var response = await request.get(url);
 
@@ -38,7 +38,7 @@ class _LendListState extends State<LendListPage> {
 
   Future<List<Book>> fetchBookList() async {
     final request = context.read<CookieRequest>();
-    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/book/json/';
+    String url = 'https://sabrina-atha-mutualibriourproject.stndar.dev/book/json/';
 
     var response = await request.get(url);
 
@@ -80,7 +80,7 @@ class _LendListState extends State<LendListPage> {
     if (confirmDelete == true) {
       // ignore: use_build_context_synchronously
       final cookieRequest = context.read<CookieRequest>();
-      String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/delete-lend-flutter/';
+      String url = 'https://sabrina-atha-mutualibriourproject.stndar.dev/delete-lend-flutter/';
 
       try {
         // ignore: unused_local_variable
