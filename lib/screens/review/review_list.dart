@@ -21,7 +21,7 @@ class _ReviewProductPageState extends State<ReviewProductPage> {
 
   Future<List<Review>> fetchReview() async {
     final request = context.watch<CookieRequest>();
-    String url = 'https://sabrina-atha-mutualibriourproject.stndar.dev/review/json/';
+    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/review/json/';
 
     var response = await request.get(url);
 

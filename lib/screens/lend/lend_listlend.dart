@@ -22,7 +22,7 @@ class LendListPage extends StatefulWidget {
 class _LendListState extends State<LendListPage> {
   Future<List<OneBook>> fetchProduct() async {
     final request = context.read<CookieRequest>();
-    String url = 'https://sabrina-atha-mutualibriourproject.stndar.dev/json/';
+    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/json/';
 
     var response = await request.get(url);
 
@@ -304,7 +304,7 @@ class _LendListState extends State<LendListPage> {
                                                 InkWell(
                                                   onTap: () {
                                                     // Navigate to QuoteForm
-                                                    Navigator.pushReplacement(
+                                                    Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
                                                         builder: (context) =>
@@ -328,7 +328,7 @@ class _LendListState extends State<LendListPage> {
                                                 InkWell(
                                                   onTap: () {
                                                     // Navigate to QuoteForm
-                                                    Navigator.pushReplacement(
+                                                    Navigator.push(
                                                       context,
                                                       MaterialPageRoute(
                                                         builder: (context) =>

@@ -21,7 +21,7 @@ class DrawerClass extends StatelessWidget {
             leading: const Icon(Icons.collections),
             title: const Text('Our Collections'),
             onTap: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const CatalogTemplate(),
@@ -33,7 +33,7 @@ class DrawerClass extends StatelessWidget {
             leading: const Icon(Icons.list),
             title: const Text('My LendList'),
             onTap: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const LendListPage(),
@@ -45,7 +45,7 @@ class DrawerClass extends StatelessWidget {
             leading: const Icon(Icons.rate_review),
             title: const Text('Reviews of Books'),
             onTap: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const ReviewProductPage(),
@@ -57,7 +57,7 @@ class DrawerClass extends StatelessWidget {
             leading: const Icon(Icons.format_quote),
             title: const Text('Quotes of Books'),
             onTap: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => const QuotePage(),

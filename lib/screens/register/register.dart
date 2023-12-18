@@ -76,7 +76,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 }
 
                 final response = await request.post(
-                  "https://sabrina-atha-mutualibriourproject.stndar.dev/auth/register/",
+                  "https://mutualibri-a08-tk.pbp.cs.ui.ac.id/auth/register/",
                   {
                     'username': username,
                     'password': password,

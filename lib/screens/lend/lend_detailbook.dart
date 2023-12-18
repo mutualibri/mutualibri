@@ -118,183 +118,129 @@ class BookPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Synopsis: \n',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: book.fields.description,
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ],
+                  const Text(
+                    'Synopsis: \n',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  Text(
+                    book.fields.description,
+                    style: const TextStyle(
+                      fontSize: 16.0,
                     ),
                   ),
                   const SizedBox(height: 10),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Genres: \n',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: book.fields.generes,
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ],
+                  const Text(
+                    'Genres: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  Text(
+                    book.fields.generes,
+                    style: const TextStyle(
+                      fontSize: 16.0,
                     ),
                   ),
                   const SizedBox(height: 10),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Author: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: book.fields.author,
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ],
+                  const Text(
+                    'Author: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  Text(
+                    book.fields.author,
+                    style: const TextStyle(
+                      fontSize: 16.0,
                     ),
                   ),
                   const SizedBox(height: 10),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'ISBN: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '${book.fields.isbn}',
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ],
+                  const Text(
+                    'ISBN: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  Text(
+                    '${book.fields.isbn}',
+                    style: const TextStyle(
+                      fontSize: 16.0,
                     ),
                   ),
                   const SizedBox(height: 10),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Publisher: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '${book.fields.publisher}',
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ],
+                  const Text(
+                    'Publisher: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  Text(
+                    '${book.fields.publisher}',
+                    style: const TextStyle(
+                      fontSize: 16.0,
                     ),
                   ),
                   const SizedBox(height: 10),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Published Date: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: book.fields.publishedDate,
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ],
+                  const Text(
+                    'Published Date: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  Text(
+                    book.fields.publishedDate,
+                    style: const TextStyle(
+                      fontSize: 16.0,
                     ),
                   ),
                   const SizedBox(height: 10),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Page Count: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '${book.fields.pageCount}',
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ],
+                  const Text(
+                    'Page Count: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  Text(
+                    '${book.fields.pageCount}',
+                    style: const TextStyle(
+                      fontSize: 16.0,
                     ),
                   ),
                   const SizedBox(height: 10),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Price: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '${book.fields.price}',
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ],
+                  const Text(
+                    'Price: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  Text(
+                    '${book.fields.price}',
+                    style: const TextStyle(
+                      fontSize: 16.0,
                     ),
                   ),
                   const SizedBox(height: 10),
-                  RichText(
-                    text: TextSpan(
-                      children: [
-                        const TextSpan(
-                          text: 'Rating: ',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 16.0,
-                          ),
-                        ),
-                        TextSpan(
-                          text: '${book.fields.rating}',
-                          style: const TextStyle(
-                            fontSize: 16.0,
-                          ),
-                        ),
-                      ],
+                  const Text(
+                    'Rating: ',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16.0,
+                    ),
+                  ),
+                  Text(
+                    '${book.fields.rating}',
+                    style: const TextStyle(
+                      fontSize: 16.0,
                     ),
                   ),
                   const SizedBox(height: 10),

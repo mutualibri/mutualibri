@@ -50,7 +50,7 @@ class _SearchBartesState extends State<SearchBartes> {
 
   Future<List<Book>> fetchProduct() async {
     final request = context.watch<CookieRequest>();
-    String url = 'https://sabrina-atha-mutualibriourproject.stndar.dev/book/json/';
+    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/book/json/';
     var response = await request.get(url);
 
     // melakukan konversi data json menjadi object Product

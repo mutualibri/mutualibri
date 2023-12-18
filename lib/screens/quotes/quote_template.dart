@@ -21,7 +21,7 @@ class _QuotePageState extends State<QuotePage> {
 
   Future<List<Quote>> fetchQuote() async {
     final request = context.watch<CookieRequest>();
-    String url = 'https://sabrina-atha-mutualibriourproject.stndar.dev/quote/json/';
+    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/quote/json/';
     var response = await request.get(url);
 
     // melakukan konversi data json menjadi object Quote
