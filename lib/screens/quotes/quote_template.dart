@@ -164,7 +164,7 @@ class _QuotePageState extends State<QuotePage> {
                     }
                   }
                 }),
-          )
+          ),
         ]));
   }
 }
