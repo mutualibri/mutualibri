@@ -43,7 +43,8 @@ class _QuoteFormState extends State<QuoteForm> {
             onPressed: () {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => const CatalogTemplate()),
+                MaterialPageRoute(
+                    builder: (context) => const CatalogTemplate()),
               );
             },
           ),
@@ -78,7 +79,7 @@ class _QuoteFormState extends State<QuoteForm> {
                 //       );
                 //     }).toList(),
                 //     decoration: InputDecoration(
-                //       labelText: 'Judul Buku',
+                //       labelText: 'Book Title',
                 //       border: OutlineInputBorder(
                 //         borderRadius: BorderRadius.circular(5.0),
                 //       ),
@@ -89,8 +90,8 @@ class _QuoteFormState extends State<QuoteForm> {
                   padding: const EdgeInsets.all(8.0),
                   child: TextFormField(
                     decoration: InputDecoration(
-                      hintText: "Judul Buku",
-                      labelText: "Judul Buku",
+                      hintText: "Book Title",
+                      labelText: "Book Title",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(5.0),
                       ),
