@@ -7,7 +7,10 @@ import '../../constants.dart';
 
 
 class OnBoard extends StatefulWidget {
+  const OnBoard({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _OnBoardState createState() => _OnBoardState();
 }
 
@@ -25,10 +28,10 @@ class _OnBoardState extends State<OnBoard> {
     ),
     OnboardModel(
       img: 'assets/images/Logo.png',
-      text: "Dapatkan Kemudahan Akses Kapanpun dan Dimanapun",
+      text: "Empower Your Expertise",
       desc:
-          "Tidak peduli dimanapun kamu, semua kursus yang telah kamu ikuti bias kamu akses sepenuhnya",
-      bg: Color(0xFFFBB825),
+          "You can explore the library catalogue, select, borrow, review, and write book quotes that suit your interests and needs.",
+      bg: const Color(0xFFFBB825),
       button: Colors.white,
     ),
     OnboardModel(
@@ -54,11 +57,9 @@ class _OnBoardState extends State<OnBoard> {
   }
 
   _storeOnboardInfo() async {
-    print("Shared pref called");
     int isViewed = 0;
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setInt('onBoard', isViewed);
-    print(prefs.getInt('onBoard'));
   }
 
   @override
@@ -73,7 +74,7 @@ class _OnBoardState extends State<OnBoard> {
             onPressed: () {
               _storeOnboardInfo();
               Navigator.pushReplacement(
-                  context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+                  context, MaterialPageRoute(builder: (context) => const WelcomeScreen()));
             },
             child: Text(
               "Skip",
@@ -102,7 +103,7 @@ class _OnBoardState extends State<OnBoard> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(screens[index].img),
-                  Container(
+                  SizedBox(
                     height: 10.0,
                     child: ListView.builder(
                       itemCount: screens.length,
@@ -113,7 +114,7 @@ class _OnBoardState extends State<OnBoard> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Container(
-                                margin: EdgeInsets.symmetric(horizontal: 3.0),
+                                margin: const EdgeInsets.symmetric(horizontal: 3.0),
                                 width: currentIndex == index ? 25 : 8,
                                 height: 8,
                                 decoration: BoxDecoration(
@@ -148,21 +149,21 @@ class _OnBoardState extends State<OnBoard> {
                   ),
                   InkWell(
                     onTap: () async {
-                      print(index);
                       if (index == screens.length - 1) {
                         await _storeOnboardInfo();
+                        // ignore: use_build_context_synchronously
                         Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) => WelcomeScreen()));
+                            MaterialPageRoute(builder: (context) => const WelcomeScreen()));
                       }
 
                       _pageController.nextPage(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         curve: Curves.bounceIn,
                       );
                     },
                     child: Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
+                          const EdgeInsets.symmetric(horizontal: 30.0, vertical: 10),
                       decoration: BoxDecoration(
                           color: index % 2 == 0 ? kPrimaryColor : kwhite,
                           borderRadius: BorderRadius.circular(15.0)),
@@ -173,7 +174,7 @@ class _OnBoardState extends State<OnBoard> {
                               fontSize: 16.0,
                               color: index % 2 == 0 ? kwhite : kPrimaryColor),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 15.0,
                         ),
                         Icon(
