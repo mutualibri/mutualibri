@@ -38,7 +38,7 @@ class _LendListState extends State<LendListPage> {
 
   Future<List<Book>> fetchBookList() async {
     final request = context.read<CookieRequest>();
-    String url = 'https://sabrina-atha-mutualibriourproject.stndar.dev/book/json/';
+    String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/book/json/';
 
     var response = await request.get(url);
 
@@ -57,8 +57,8 @@ class _LendListState extends State<LendListPage> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          title: const Text('Confirm Delete'),
-          content: const Text('Are you sure you want to delete this data?'),
+          title: const Text('Confirm Finish'),
+          content: const Text('Are you sure you want to finish your lendbook?'),
           actions: [
             TextButton(
               onPressed: () {
@@ -70,7 +70,7 @@ class _LendListState extends State<LendListPage> {
               onPressed: () {
                 Navigator.of(context).pop(true);
               },
-              child: const Text('Delete'),
+              child: const Text('Finish'),
             ),
           ],
         );
@@ -80,7 +80,7 @@ class _LendListState extends State<LendListPage> {
     if (confirmDelete == true) {
       // ignore: use_build_context_synchronously
       final cookieRequest = context.read<CookieRequest>();
-      String url = 'https://sabrina-atha-mutualibriourproject.stndar.dev/delete-lend-flutter/';
+      String url = 'https://mutualibri-a08-tk.pbp.cs.ui.ac.id/delete-lend-flutter/';
 
       try {
         // ignore: unused_local_variable
