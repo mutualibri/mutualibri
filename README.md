@@ -91,7 +91,7 @@ Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut:
 
 **🌤️ Role atau Peran _User_ + Deskripsi**
 
-1. Guest: Dapat mengakses _landing page_, _sign in_ (_login_), dan _sign up_ (_register_).
+1. Guest: Dapat mengakses _welcome page_, _sign in_ (_login_), dan _sign up_ (_register_).
 2. Peminjam Buku: Memiliki kemampuan untuk mencari buku dari daftar katalog dengan kata kunci, seperti judul. Pengguna juga dapat melihat detail buku seperti judul, sinopsis, rating ulasan, dan dapat juga menulis kutipan. Memiliki kemampuan untuk meminjam buku dari daftar katalog dengan cara mengajukan permintaan peminjaman. Mencari dan menulis _review_ atau _quotes_ dari buku yang telah dibaca, serta dapat di-_post_ pada halaman "Review" atau “Quotes”. 
 
 ---
