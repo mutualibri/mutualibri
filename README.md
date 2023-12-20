@@ -1,10 +1,9 @@
 # mutualibri
 
-![Jekyll site CI](https://github.com/mutualibri/mutualibri/workflows/Jekyll%20site%20CI/badge.svg)
 [![Pre-Release](https://github.com/mutualibri/mutualibri/actions/workflows/pre-release.yml/badge.svg)](https://github.com/mutualibri/mutualibri/actions/workflows/pre-release.yml)
 [![Release](https://github.com/mutualibri/mutualibri/actions/workflows/release.yml/badge.svg)](https://github.com/mutualibri/mutualibri/actions/workflows/release.yml)
 [![Build status](https://build.appcenter.ms/v0.1/apps/d98657ab-c206-4a95-a945-454f014278fd/branches/main/badge)](https://appcenter.ms)
-[![Develop](https://github.com/mutualibri/mutualibri/actions/workflows/develop.yml/badge.svg)](https://github.com/mutualibri/mutualibri/actions/workflows/develop.yml)
+[![Develop](https://github.com/mutualibri/mutualibri/actions/workflows/deploy.yml/badge.svg)](https://github.com/mutualibri/mutualibri/actions/workflows/deploy.yml)
 
 ### 👩🏻🧔🏻‍♂️ Developer Team :
 * 2206083691 - Fari Hafizh Ramadhan
