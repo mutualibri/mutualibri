@@ -8,52 +8,53 @@ class QuoteNull extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      drawer: const DrawerClass(),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const Text(
-              'Be the First to Add a Quote',
-              style: TextStyle(
-                fontSize: 24.0,
-                fontWeight: FontWeight.bold,
-                color: Color(0xFFED8728), // Gunakan warna dari color palette
-              ),
-            ),
-            const SizedBox(height: 20.0),
-            ElevatedButton(
-              onPressed: () {
-                // Implement action when the button is pressed
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const QuoteForm()));
-              },
-              style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(
-                    const Color(0xFFFBB825)), // Gunakan warna dari color palette
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                ),
-              ),
-              child: const Padding(
-                padding: EdgeInsets.all(12.0),
-                child: Text(
-                  'Add Your Quote Here!',
-                  style: TextStyle(
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-          ],
+        body: Center(
+            child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        const Text(
+          "There's no quotes yet",
+          style: TextStyle(
+            color: Color(0xFFED8728),
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
         ),
-      ),
-    );
+        const SizedBox(
+          height: 100,
+        ),
+        const Text(
+          "Be the First to Add a Quote!",
+          style: TextStyle(
+            color: Color(0xFFED8728),
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        const SizedBox(
+          height: 100,
+        ),
+        ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(
+                const Color.fromARGB(255, 241, 188, 74)),
+          ),
+          onPressed: () async {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const QuoteForm(),
+              ),
+            );
+          },
+          child: const Text(
+            "add your quote here!",
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
+      ],
+    )));
   }
 }
 
