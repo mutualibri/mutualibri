@@ -11,7 +11,6 @@ class OnBoard extends StatefulWidget {
   const OnBoard({super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
   _OnBoardState createState() => _OnBoardState();
 }
 
@@ -25,7 +24,7 @@ class _OnBoardState extends State<OnBoard> {
       desc:
           "Sebuah metode belajar yang terbuktiampuh dalam meningkatkan produktifitas belajar, Learning by Doing",
       bg: Colors.white,
-      button: Color(0xFFFBB825),
+      button: const Color(0xFFFBB825),
     ),
     OnboardModel(
       img: 'assets/images/Logo.png',
@@ -40,7 +39,7 @@ class _OnBoardState extends State<OnBoard> {
       desc:
           "Tersedia fitur Kolaborasi dengan tujuan untuk mengasah skill lebih dalam karena bias belajar bersama",
       bg: Colors.white,
-      button: Color(0xFFFBB825),
+      button: const Color(0xFFFBB825),
     ),
   ];
 
@@ -92,7 +91,7 @@ class _OnBoardState extends State<OnBoard> {
         child: PageView.builder(
             itemCount: screens.length,
             controller: _pageController,
-            physics: NeverScrollableScrollPhysics(),
+            physics: const NeverScrollableScrollPhysics(),
             onPageChanged: (int index) {
               setState(() {
                 currentIndex = index;
