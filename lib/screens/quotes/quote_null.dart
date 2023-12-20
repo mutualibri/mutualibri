@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:mutualibri/screens/quotes/quote_form.dart';
-import 'package:mutualibri/widgets/drawer.dart';
 
 class QuoteNull extends StatelessWidget {
   @override
