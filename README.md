@@ -51,18 +51,18 @@ Solusi untuk berbagai masalah ini mungkin termasuk perbaikan sistem manajemen pe
 
 **📲 Deskripsi Aplikasi _Mobile_**
 
-‘mututalibri’ adalah sebuah aplikasi seperti perpustakaan _online_ yang dirancang sebagai wadah siswa mencari dan menemukan buku. Aplikasi ini menghadirkan proses peminjaman buku _online_ kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Aplikasi ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat baca para siswa. Kami menyediakan lebih dari 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
+‘mututalibri’ adalah sebuah aplikasi seperti perpustakaan _online_ yang dirancang sebagai wadah siswa mencari dan menemukan buku. Aplikasi ini menghadirkan proses peminjaman buku _online_ kepada siswa dan juga ulasan ulasan buku dari siswa lainnya, sehingga dapat menjadi pertimbangan buku bacaan selanjutnya bagi siswa. Aplikasi ini juga menyediakan kumpulan kutipan buku yang ditambahkan oleh siswa. Misi utama kami adalah untuk meningkatkan minat siswa untuk meminjam buku dan literasi siswa. Dalam aplikasi ini, kami menyediakan kurang lebih 100 buku untuk dapat dipinjam, dinilai dan juga memberikan saran yang disesuaikan dengan selera literasi siswa.
 
 **💫 Fitur/Modul dan Pembagian Tugas Modul**
 
 Aplikasi mobile ini akan terdiri dari 4 modul, di antaranya sebagai berikut:
 1. Melakukan pencarian buku yang tersedia dalam katalog perpustakaan - Samuel Widjaja
 
-    Modul ini dirancang untuk membantu siswa menemukan dan mengakses buku dalam katalog perpustakaan. Siswa dapat menggunakan aplikasi ini untuk mencari buku berdasarkan judul atau kata kunci lainnya. Aplikasi akan memberikan informasi detail tentang buku-buku yang sesuai, termasuk sinopsis, _review_, dan _quotes_ yang dapat ditambahkan oleh _user_. Siswa juga dapat melihat ketersediaan buku tersebut untuk dipinjam.
+    Modul ini dirancang untuk membantu siswa menemukan dan mengakses buku dalam katalog perpustakaan. Siswa dapat menggunakan aplikasi ini untuk mencari buku berdasarkan judul buku. Aplikasi akan memberikan hasil penelusuran dan informasi detail buku, termasuk sinopsis, _review_, dan _quotes_ yang dapat ditambahkan oleh _user_. 
 
 2. Menyediakan alur peminjaman buku secara online yang memungkinkan siswa untuk meminjam buku yang mereka inginkan - Sabrina Atha Shania
 
-    Modul ini dirancang untuk membantu siswa memilih buku yang ingin mereka pinjam dan menandai buku tersebut untuk peminjaman. Proses peminjaman biasanya melibatkan menentukan periode peminjaman dan jumlah buku yang ingin dipinjam. Setelah buku dipinjam, siswa akan menerima konfirmasi peminjaman. Sebagai tambahan, dalam aplikasi ini juga tersedia fitur buku yang sedang dipinjam dimana siswa dapat menyelesaikan peminjaman tiap buku, memberikan _review_, dan menyimpan _quotes_ yang terdapat dalam buku tersebut.
+    Modul ini dirancang untuk membantu siswa memilih buku yang ingin mereka pinjam dan menandai buku tersebut untuk peminjaman. Proses peminjaman sudah diatur untuk jangka waktu seminggu. Setelah melakukan peminjaman buku, siswa akan menerima konfirmasi peminjaman beserta nomor buku untuk ditunjukkan kepada librarian perpustakaan. Hal tersebut bertujuan librarian tahu buku apa yang dipinjam dan memberikan buku tersebut kepada siswa (asumsikan perpustakaan tersebut telah menyortir buku berdasarkan nomor yang sesuai dengan tiap tiap judul buku). Sebagai tambahan, dalam aplikasi ini juga tersedia fitur buku yang sedang dipinjam dengan kemampuan fitur didalamnya siswa dapat menyelesaikan peminjaman tiap buku, memberikan _review_, dan menyimpan _quotes_ yang terdapat dalam buku tersebut. 
 
 3. Menulis ulasan mengenai buku yang telah dibaca - Novrizal Airsyahputra
 
