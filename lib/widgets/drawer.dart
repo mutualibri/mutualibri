@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mutualibri/constants.dart';
 import 'package:mutualibri/screens/lend/lend_listlend.dart';
 import 'package:mutualibri/screens/login/login.dart';
 import 'package:mutualibri/screens/quotes/quote_template.dart';
@@ -13,8 +14,33 @@ class DrawerClass extends StatelessWidget {
     return Drawer(
       child: Column(
         children: [
-          const SizedBox(
-            height: 30.0,
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: kPrimaryColor,
+            ),
+            child: Column(
+              children: [
+                Text(
+                  'Mutualibri',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Padding(padding: EdgeInsets.all(10)),
+                Text(
+                  "Borrow your books easily through this application!",
+                  style: TextStyle(
+                    fontSize: 15.0, // Ukuran font 15
+                    color: Colors.white, // Warna putih
+                    fontWeight: FontWeight.normal, // Weight biasa
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ],
+            ),
           ),
           // Adding clickable menu
           ListTile(
@@ -79,11 +105,6 @@ class DrawerClass extends StatelessWidget {
                       child: const Text('Not yet!'),
                       onPressed: () {
                         Navigator.pop(context);
-                        // Navigator.pushReplacement(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //       builder: (context) => const CatalogTemplate()),
-                        // );
                       },
                     ),
                     TextButton(
@@ -100,10 +121,6 @@ class DrawerClass extends StatelessWidget {
                   ],
                 ),
               );
-              // Navigator.pushReplacement(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => const LoginPage()),
-              // );
             },
           ),
         ],
