@@ -31,7 +31,7 @@ class DrawerClass extends StatelessWidget {
           ),
           ListTile(
             leading: const Icon(Icons.list),
-            title: const Text('My LendList'),
+            title: const Text('My Lend List'),
             onTap: () {
               Navigator.push(
                 context,
@@ -69,10 +69,41 @@ class DrawerClass extends StatelessWidget {
             leading: const Icon(Icons.logout),
             title: const Text('Logout'),
             onTap: () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(builder: (context) => const LoginPage()),
+              showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: const Text('Logout'),
+                  content: const Text("Have you finished exploring?"),
+                  actions: [
+                    TextButton(
+                      child: const Text('Not yet!'),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        // Navigator.pushReplacement(
+                        //   context,
+                        //   MaterialPageRoute(
+                        //       builder: (context) => const CatalogTemplate()),
+                        // );
+                      },
+                    ),
+                    TextButton(
+                      child: const Text('Yes, I have'),
+                      onPressed: () {
+                        Navigator.pop(context);
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginPage()),
+                        );
+                      },
+                    ),
+                  ],
+                ),
               );
+              // Navigator.pushReplacement(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => const LoginPage()),
+              // );
             },
           ),
         ],
