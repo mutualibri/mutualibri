@@ -57,7 +57,7 @@ class MyApp extends StatelessWidget {
                 ),
               )),
               // home: MyBottomNavBar(),
-          home: isviewed != 0 ? OnBoard() : const WelcomeScreen(),
+          home: isviewed != 0 ? const OnBoard() : const WelcomeScreen(),
         ));
   }
 }
